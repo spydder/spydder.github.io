@@ -1,3 +1,12 @@
+---
+title: "Brain Fuck"
+author: spydder
+date: 2023-12-30
+categories: [Programming Language]
+tags: [brainfuck]
+---
+
+
 # Brain Fuck
 
 This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
