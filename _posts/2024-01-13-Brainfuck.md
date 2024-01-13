@@ -13,20 +13,20 @@ This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
 
 1. First you must have the ASCII table at hand: [https://www.asciitable.com/](https://www.asciitable.com/)
 
-2. Each character must now be represented with its decimal representation.:
+2. Each character must now be represented with its decimal representation.
 
 	|                |Character                          |Decimal                         |
 	|----------------|-------------------------------|-----------------------------|
-	||`H`|72|
-	||`o`|111|
-	||`l`|108|
-	||`a`|97|
-	||`Space`|32|
-	||`M`|70|
-	||`u`|110|
-	||`n`|100|
-	||`d`|90|
-	||`o`|110|
+	||H|72|
+	||o|111|
+	||l|108|
+	||a|97|
+	||Space|32|
+	||M|70|
+	||u|110|
+	||n|100|
+	||d|90|
+	||o|110|
 
 3. Now, these decimal values must be approached by adding 10 by 10 and adding up the remainder.
      | Character | Decimal | Sum |
@@ -61,7 +61,7 @@ This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
 	]
 	```
 
-7. Finally, it remains to increase the resultant of each decimal and have it displayed on the console with a dot:
+7. Finally, it remains to increase the resultant of each decimal and have it displayed on the console with a dot.
 	```brainfuck
 	+++++ +++++
 	[
