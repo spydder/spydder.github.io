@@ -4,9 +4,7 @@ date: 2024-01-01
 categories: [Programming_Language]
 tags: [brainfuck]
 image:
-    path: ../assets/thumbnail/brainfuck.png
-    width: 800
-    height: 500
+    path: /assets/thumbnail/brainfuck.png
 ---
 
 
