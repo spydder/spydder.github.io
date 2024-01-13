@@ -28,25 +28,27 @@ This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
 	||`o`|110|
 
 3. Now, these decimal values must be approached by adding 10 by 10 and adding up the remainder.
-	|                |Caracter                          |Decimal                         | Suma                         | 
-	|----------------|-------------------------------|-----------------------------|
-	||`H`|72|70+2
-	||`o`|111|110+1
-	||`l`|108|100+8
-	||`a`|97|90+7
-	||`Space`|32|30+2
-	||`M`|70|60+10
-	||`u`|110|100+10
-	||`n`|100|90+10
-	||`d`|90|80+10
-	||`o`|110|100+10
 
-4. Now in Brain Fuck, for the first cell the value is increased by 10, this will serve as a counter.
+  | Character | Decimal | Sum |
+  | ----------- | ----------- |  ----------- |  
+  | H | 72 | 70+2 |
+  | o | 111 | 110+1 |
+  | l | 108 | 100+8 |
+  | a | 97 | 90+7 |
+  | Space | 32 | 30+2 |
+  | M | 70 | 60+10 |
+  | u | 110 | 100+10 |
+  | n | 100 | 90+10 |
+  | d | 90 | 80+10 |
+  | o | 110 | 100+10 |
+
+
+5. Now in Brain Fuck, for the first cell the value is increased by 10, this will serve as a counter.
 	```brainfuck
 	+++++ +++++
 	```
 
-5. Now a loop will be created so that in each following cell the corresponding value will be increased and in each iteration the counter will be decreased by 1, so that the loop will be executed 10 times, so that each cell will be multiplied by 10 (axis: 7*10, 11*10, etc).
+6. Now a loop will be created so that in each following cell the corresponding value will be increased and in each iteration the counter will be decreased by 1, so that the loop will be executed 10 times, so that each cell will be multiplied by 10 (axis: 7*10, 11*10, etc).
 	```brainfuck
 	+++++ +++++ 
 	[ 
@@ -58,7 +60,7 @@ This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
 	]
 	```
 
-6. Finally, it remains to increase the resultant of each decimal and have it displayed on the console with a dot:
+7. Finally, it remains to increase the resultant of each decimal and have it displayed on the console with a dot:
 	```brainfuck
 	+++++ +++++
 	[
@@ -75,7 +77,7 @@ This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
 	>+++++++.
 	```
 
-7. Now the same process is done with the word "Mundo".
+8. Now the same process is done with the word "Mundo".
    The complete code would look like this:
 	```brainfuck
 	# Hola
