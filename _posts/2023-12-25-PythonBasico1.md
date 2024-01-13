@@ -3,9 +3,12 @@ title: "PythonBasico1"
 date: 2023-12-25
 categories: [Programming_Language]
 tags: [python]
-img_path: /assets/PythonBasico/
 image:
     path: /assets/thumbnail/pythonbasico.jpg
+---
+
+---
+img_path: /assets/PythonBasico/
 ---
 
 # Python Básico (1/2): Conceptos
