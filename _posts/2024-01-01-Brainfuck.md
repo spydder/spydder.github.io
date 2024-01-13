@@ -30,18 +30,19 @@ This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
 	||o|110|
 
 3. Now, these decimal values must be approached by adding 10 by 10 and adding up the remainder.
-     | Character | Decimal | Sum |
-  | ----------- | ----------- |  ----------- |  
-  | H | 72 | 70+2 |
-  | o | 111 | 110+1 |
-  | l | 108 | 100+8 |
-  | a | 97 | 90+7 |
-  | Space | 32 | 30+2 |
-  | M | 70 | 60+10 |
-  | u | 110 | 100+10 |
-  | n | 100 | 90+10 |
-  | d | 90 | 80+10 |
-  | o | 110 | 100+10 |
+
+	| Character | Decimal | Sum |
+	| ----------- | ----------- |  ----------- |  
+	| H | 72 | 70+2 |
+	| o | 111 | 110+1 |
+	| l | 108 | 100+8 |
+	| a | 97 | 90+7 |
+	| Space | 32 | 30+2 |
+	| M | 70 | 60+10 |
+	| u | 110 | 100+10 |
+	| n | 100 | 90+10 |
+	| d | 90 | 80+10 |
+	| o | 110 | 100+10 |
 
 
 
