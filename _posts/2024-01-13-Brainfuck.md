@@ -1,6 +1,7 @@
 ---
 title: "Brainfuck"
-date: 2023-12-30
+author: spydder
+date: 2024-01-13
 categories: [Programming_Language]
 tags: [brainfuck]
 ---
@@ -28,8 +29,7 @@ This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
 	||`o`|110|
 
 3. Now, these decimal values must be approached by adding 10 by 10 and adding up the remainder.
-
-  | Character | Decimal | Sum |
+     | Character | Decimal | Sum |
   | ----------- | ----------- |  ----------- |  
   | H | 72 | 70+2 |
   | o | 111 | 110+1 |
@@ -41,6 +41,7 @@ This is an example of how to make a "Hola Mundo" in the Brain Fuck language.
   | n | 100 | 90+10 |
   | d | 90 | 80+10 |
   | o | 110 | 100+10 |
+
 
 
 5. Now in Brain Fuck, for the first cell the value is increased by 10, this will serve as a counter.
