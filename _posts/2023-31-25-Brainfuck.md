@@ -1,7 +1,6 @@
 ---
 title: "Brainfuck"
-author: spydder
-date: 2024-01-13
+date: 2023-25-31
 categories: [Programming_Language]
 tags: [brainfuck]
 ---
