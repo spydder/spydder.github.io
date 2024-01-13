@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Programming_Language]
 tags: [python]
 image:
-    path: /assets/thumbnail/pythonbasico.jpg
+    path: /assets/PythonBasico/pythonbasico.jpg
 ---
 
 # Python Básico (1/2): Conceptos
