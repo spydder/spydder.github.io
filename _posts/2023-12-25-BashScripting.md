@@ -23,6 +23,7 @@ Comandos y conceptos útiles para bash scripting.
     git commit -n <”Descripción de herramienta”> # Añadirá una descripción al commit.
     git remote add origin <dirección URL del repositorio en github> # Añadirá el script al repositorio creado en GitHub.
     git push -u origin master # Ingresar usuario y contraseña de GitHub.
+    ```
     
     
 2. **Manejar archivos con nombres especiales**: 
@@ -768,97 +769,97 @@ Comandos y conceptos útiles para bash scripting.
     
 64. **Ejercicio: Mostrar valores impares del 1 al 99**: **`for i=1; i≤100; i+=2; do echo $i; done`**
 
-- La primera expresión entre paréntesis **`((i=1;`** establece el valor inicial de la variable "i" en 1.
-- La segunda expresión **`i<100;`** es la condición de parada del bucle, en este caso, el bucle se ejecutará mientras "i" sea menor a 100.
-- La tercera expresión **`i+=2))`** es el paso que se da en cada iteración, en este caso se le suma 2 a "i" en cada iteración
-- El comando **`echo $i`** imprime el valor de "i" en cada iteración
-- El "done" al final indica el fin del bucle.
-
-	En resumen, este código imprimirá todos los números impares desde 1 hasta 99.
-
-	El uso de doble paréntesis en este caso es para indicar que se está utilizando una sintaxis especial de Bash llamada "arithmetic expansion". Esta sintaxis permite realizar operaciones aritméticas dentro del bucle "for" utilizando una sintaxis similar a la utilizada en otros lenguajes de programación como C o Java.
-
-	Sin esta sintaxis, se tendría que hacer uso de las funciones aritméticas de Bash y se vería como : **`for i in {1..99..2}; do echo $i; done`** la sintaxis de doble paréntesis es más legible y fácil de entender para aquellos que estén familiarizados con otros lenguajes de programación.
-
-	¿Por qué “+=2” y no “+2”?
-
-	En el código anterior, **`i+=2`** se utiliza para incrementar el valor de la variable "i" en 2 unidades en cada iteración del bucle, mientras que si se utilizara **`i+2`**, se estaría creando una nueva variable con el valor de "i" más 2 y no se estaría incrementando el valor de "i" en sí.
-
-	La notación **`+=`** es una abreviación de "incrementar en" o "sumarle a", mientras que **`+`** es simplemente una operación matemática de suma.
-	En resumen, **`i+=2`** es utilizado para incrementar el valor actual de "i" en 2, mientras que **`i+2`** es utilizado para obtener un nuevo valor que es 2 unidades mayor que el valor actual de "i"
-
-	**Establecer dos variables dentro del bucle “for” y “while”**:
-
-	FOR
-
-	Es posible establecer dos o más variables dentro de un bucle "for" en Bash utilizando la sintaxis de "arithmetic expansion". Por ejemplo:
-
-	```bash
-	for ((i=1, j=10; i<=5; i++, j--)) do
-		echo "i: $i, j: $j"
-	done
-	```
-
-	En este ejemplo, se establecen dos variables, "i" y "j", en el inicio del bucle, y se les asigna un valor inicial respectivo. Luego, en cada iteración del bucle, se incrementa el valor de "i" en 1 y se decrementa el valor de "j" en 1, imprimiendo ambos valores en cada iteración.
-
-	Es importante mencionar que las variables deben ser separadas por comas y las operaciones que se realizan en cada iteración del bucle también deben estar separadas por comas.
-
-	Si desea incrementar ambas variables en 1 unidad en cada iteración del bucle, puede hacerlo de la siguiente manera:
-
-	```bash
-	for ((i=1, j=10; i<=5; i++, j++)) do
-		echo "i: $i, j: $j"
-	done
-	```
-
-	En este ejemplo se establece dos variables "i" y "j" con un valor inicial respectivo, y en cada iteración se le suma 1 a ambas variables, imprimiendo ambos valores en cada iteración.
-
-	Otra forma de hacerlo sería de esta manera:
-
-	```bash
-	for ((i=1; i<=5; i++)) do
-		j=$((j+1))
-		echo "i: $i, j: $j"
-	done
-	```
-
-	Aquí, se establece una variable "i" y se incrementa en 1 en cada iteración del bucle, y se establece una variable "j" con un valor inicial y se incrementa en 1 en cada iteración del bucle dentro del cuerpo del mismo.
-
-	En ambos casos se logra incrementar ambas variables en 1 unidad en cada iteración del bucle.
-
-	WHILE
-
-	Para establecer dos o más variables dentro de un bucle "while" en Bash, puede hacerlo utilizando la sintaxis de "arithmetic expansion" y asignándoles un valor inicial antes del bucle.
-
-	```bash
-	i=1
-	j=10
-	while ((i<=5)) do
-		echo "i: $i, j: $j"
-		((i++))
-		((j--))
-	done
-	```
-
-	En este ejemplo, se establecen dos variables, "i" y "j", con valores iniciales antes del bucle. En cada iteración del bucle, se incrementa el valor de "i" en 1 y se decrementa el valor de "j" en 1 y se imprimen ambos valores en cada iteración.
-
-	También se puede hacerlo de esta manera:
-
-	```bash
-	i=1
-	j=10
-	while [ $i -le 5 ] do
-		echo "i: $i, j: $j"
-		i=$((i+1))
-		j=$((j-1))
-	done
-	```
-
-	Aquí se establece una variable "i" y "j" con un valor inicial antes del bucle, y en cada iteración del bucle se incrementa el valor de "i" en 1 y se decrementa el valor de "j" en 1 dentro del cuerpo del mismo y se imprimen ambos valores en cada iteración.
-
-	Es importante mencionar que se pueden hacer operaciones aritméticas más complejas en cada iteración dentro del cuerpo del bucle.
-
-	En ambos casos se logra establecer dos variables dentro de un bucle "while" y realizar operaciones con ellas en cada iteración.
+  - La primera expresión entre paréntesis **`((i=1;`** establece el valor inicial de la variable "i" en 1.
+  - La segunda expresión **`i<100;`** es la condición de parada del bucle, en este caso, el bucle se ejecutará mientras "i" sea menor a 100.
+  - La tercera expresión **`i+=2))`** es el paso que se da en cada iteración, en este caso se le suma 2 a "i" en cada iteración
+  - El comando **`echo $i`** imprime el valor de "i" en cada iteración
+  - El "done" al final indica el fin del bucle.
+  
+  	En resumen, este código imprimirá todos los números impares desde 1 hasta 99.
+  
+  	El uso de doble paréntesis en este caso es para indicar que se está utilizando una sintaxis especial de Bash llamada "arithmetic expansion". Esta sintaxis permite realizar operaciones aritméticas dentro del bucle "for" utilizando una sintaxis similar a la utilizada en otros lenguajes de programación como C o Java.
+  
+  	Sin esta sintaxis, se tendría que hacer uso de las funciones aritméticas de Bash y se vería como : **`for i in {1..99..2}; do echo $i; done`** la sintaxis de doble paréntesis es más legible y fácil de entender para aquellos que estén familiarizados con otros lenguajes de programación.
+  
+  	¿Por qué “+=2” y no “+2”?
+  
+  	En el código anterior, **`i+=2`** se utiliza para incrementar el valor de la variable "i" en 2 unidades en cada iteración del bucle, mientras que si se utilizara **`i+2`**, se estaría creando una nueva variable con el valor de "i" más 2 y no se estaría incrementando el valor de "i" en sí.
+  
+  	La notación **`+=`** es una abreviación de "incrementar en" o "sumarle a", mientras que **`+`** es simplemente una operación matemática de suma.
+  	En resumen, **`i+=2`** es utilizado para incrementar el valor actual de "i" en 2, mientras que **`i+2`** es utilizado para obtener un nuevo valor que es 2 unidades mayor que el valor actual de "i"
+  
+  	**Establecer dos variables dentro del bucle “for” y “while”**:
+  
+  	FOR
+  
+  	Es posible establecer dos o más variables dentro de un bucle "for" en Bash utilizando la sintaxis de "arithmetic expansion". Por ejemplo:
+  
+  	```bash
+  	for ((i=1, j=10; i<=5; i++, j--)) do
+  		echo "i: $i, j: $j"
+  	done
+  	```
+  
+  	En este ejemplo, se establecen dos variables, "i" y "j", en el inicio del bucle, y se les asigna un valor inicial respectivo. Luego, en cada iteración del bucle, se incrementa el valor de "i" en 1 y se decrementa el valor de "j" en 1, imprimiendo ambos valores en cada iteración.
+  
+  	Es importante mencionar que las variables deben ser separadas por comas y las operaciones que se realizan en cada iteración del bucle también deben estar separadas por comas.
+  
+  	Si desea incrementar ambas variables en 1 unidad en cada iteración del bucle, puede hacerlo de la siguiente manera:
+  
+  	```bash
+  	for ((i=1, j=10; i<=5; i++, j++)) do
+  		echo "i: $i, j: $j"
+  	done
+  	```
+  
+  	En este ejemplo se establece dos variables "i" y "j" con un valor inicial respectivo, y en cada iteración se le suma 1 a ambas variables, imprimiendo ambos valores en cada iteración.
+  
+  	Otra forma de hacerlo sería de esta manera:
+  
+  	```bash
+  	for ((i=1; i<=5; i++)) do
+  		j=$((j+1))
+  		echo "i: $i, j: $j"
+  	done
+  	```
+  
+  	Aquí, se establece una variable "i" y se incrementa en 1 en cada iteración del bucle, y se establece una variable "j" con un valor inicial y se incrementa en 1 en cada iteración del bucle dentro del cuerpo del mismo.
+  
+  	En ambos casos se logra incrementar ambas variables en 1 unidad en cada iteración del bucle.
+  
+  	WHILE
+  
+  	Para establecer dos o más variables dentro de un bucle "while" en Bash, puede hacerlo utilizando la sintaxis de "arithmetic expansion" y asignándoles un valor inicial antes del bucle.
+  
+  	```bash
+  	i=1
+  	j=10
+  	while ((i<=5)) do
+  		echo "i: $i, j: $j"
+  		((i++))
+  		((j--))
+  	done
+  	```
+  
+  	En este ejemplo, se establecen dos variables, "i" y "j", con valores iniciales antes del bucle. En cada iteración del bucle, se incrementa el valor de "i" en 1 y se decrementa el valor de "j" en 1 y se imprimen ambos valores en cada iteración.
+  
+  	También se puede hacerlo de esta manera:
+  
+  	```bash
+  	i=1
+  	j=10
+  	while [ $i -le 5 ] do
+  		echo "i: $i, j: $j"
+  		i=$((i+1))
+  		j=$((j-1))
+  	done
+  	```
+  
+  	Aquí se establece una variable "i" y "j" con un valor inicial antes del bucle, y en cada iteración del bucle se incrementa el valor de "i" en 1 y se decrementa el valor de "j" en 1 dentro del cuerpo del mismo y se imprimen ambos valores en cada iteración.
+  
+  	Es importante mencionar que se pueden hacer operaciones aritméticas más complejas en cada iteración dentro del cuerpo del bucle.
+  
+  	En ambos casos se logra establecer dos variables dentro de un bucle "while" y realizar operaciones con ellas en cada iteración.
 
 65. **Ejemplo de script que toma valores ingresados por el usuario y los use para operaciones aritméticas**:
     
@@ -1535,24 +1536,24 @@ Comandos y conceptos útiles para bash scripting.
         
         Los argumentos en Bash son una forma de pasar información al script o función cuando se invoca desde la línea de comandos, lo que permite una mayor flexibilidad y personalización de los programas.
         
-- **Más variables especiales**
-    - $OLDPWD: Contiene el directorio de trabajo anterior (Old Print Working Directory). Se utiliza para hacer referencia al directorio en el que estabas antes de cambiar al directorio actual.
-    - $_: Contiene el último argumento del comando anterior ejecutado o el último parámetro de una función.
-    - !$: Hace referencia al último argumento del comando anterior. Al igual que $!:!, puedes utilizarlo para evitar tener que volver a escribir el último argumento en una nueva línea de comandos.
-    - !^: Hace referencia al primer argumento del comando anterior. Es útil cuando deseas utilizar solo el primer argumento del comando anterior en una nueva línea de comandos.
-    - !-n: Hace referencia al comando "n" en el historial del shell. Puedes utilizarlo para recuperar comandos previos y ejecutarlos nuevamente.
-    - $IFS: Contiene el separador de campos internos (Internal Field Separator). Se utiliza para dividir cadenas en campos separados.
-    - $PIPESTATUS: Un arreglo que contiene los estados de salida de los comandos separados por tuberías (pipes) en un comando compuesto. El índice 0 corresponde al estado de salida del primer comando, el índice 1 al segundo comando, y así sucesivamente.
-    - $BASH_VERSION: Contiene la versión de Bash actualmente en uso.
-    - $RANDOM: Genera un número aleatorio cada vez que se accede a él.
-    - $LINENO: Contiene el número de línea actual en el script.
-    - $SECONDS: Contiene el número de segundos transcurridos desde que el script se inició o desde que se reinició la variable $SECONDS.
-    - $HISTCMD: Contiene el número de comando actual en el historial del shell.
-    - $HOSTNAME: Contiene el nombre del host de la máquina.
-    - $HOME: Contiene la ruta al directorio de inicio del usuario actual.
-    - $USER: Contiene el nombre del usuario actual.
-    - $UID: Contiene el ID de usuario del usuario actual.
-    - $EUID: Contiene el ID de usuario efectivo (effective user ID) del usuario actual.
+  - **Más variables especiales**
+      - $OLDPWD: Contiene el directorio de trabajo anterior (Old Print Working Directory). Se utiliza para hacer referencia al directorio en el que estabas antes de cambiar al directorio actual.
+      - $_: Contiene el último argumento del comando anterior ejecutado o el último parámetro de una función.
+      - !$: Hace referencia al último argumento del comando anterior. Al igual que $!:!, puedes utilizarlo para evitar tener que volver a escribir el último argumento en una nueva línea de comandos.
+      - !^: Hace referencia al primer argumento del comando anterior. Es útil cuando deseas utilizar solo el primer argumento del comando anterior en una nueva línea de comandos.
+      - !-n: Hace referencia al comando "n" en el historial del shell. Puedes utilizarlo para recuperar comandos previos y ejecutarlos nuevamente.
+      - $IFS: Contiene el separador de campos internos (Internal Field Separator). Se utiliza para dividir cadenas en campos separados.
+      - $PIPESTATUS: Un arreglo que contiene los estados de salida de los comandos separados por tuberías (pipes) en un comando compuesto. El índice 0 corresponde al estado de salida del primer comando, el índice 1 al segundo comando, y así sucesivamente.
+      - $BASH_VERSION: Contiene la versión de Bash actualmente en uso.
+      - $RANDOM: Genera un número aleatorio cada vez que se accede a él.
+      - $LINENO: Contiene el número de línea actual en el script.
+      - $SECONDS: Contiene el número de segundos transcurridos desde que el script se inició o desde que se reinició la variable $SECONDS.
+      - $HISTCMD: Contiene el número de comando actual en el historial del shell.
+      - $HOSTNAME: Contiene el nombre del host de la máquina.
+      - $HOME: Contiene la ruta al directorio de inicio del usuario actual.
+      - $USER: Contiene el nombre del usuario actual.
+      - $UID: Contiene el ID de usuario del usuario actual.
+      - $EUID: Contiene el ID de usuario efectivo (effective user ID) del usuario actual.
 
 87. **STDIN, STDERR y STDOUT**:
     - [stdin] Ejemplo #1
