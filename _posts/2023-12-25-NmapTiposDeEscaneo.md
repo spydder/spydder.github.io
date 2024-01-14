@@ -93,7 +93,7 @@ nmap 12.12.12.5 -oX # Formato xml
 
 Primero se verifica la interfaz de red que se usará con **iwconfig**, en este caso será la “enp0s3”**:**
 
-![](../assets/NmapTiposDeEscaneo/Untitled.png)
+![](../assets/NmapTiposDeEscaneo/Untitled.png){: .right }
 
 Se hará uso de la herramienta **tcpdump** para capturar los paquetes de esa interfaz e ingresarlo en un archivo:
 
@@ -125,11 +125,11 @@ Una vez abierto el archivo en Wireshark, se filtra por el puerto TCP usado y se 
 
 **Si el puerto está abierto**:
 
-![](../assets/NmapTiposDeEscaneo/Untitled1.png)
+![](../assets/NmapTiposDeEscaneo/Untitled1.png){: .right }
 
 **Si el puerto está cerrado**:
 
-![](../assets/NmapTiposDeEscaneo/Untitled2.png)
+![](../assets/NmapTiposDeEscaneo/Untitled2.png){: .right }
 
 ## Enumeración de puertos usando descriptores de archivo
 Una alternativa a la enumeración de puertos utilizando herramientas externas es aprovechar el poder de los descriptores de archivo en sistemas Unix. Los descriptores de archivo son una forma de acceder y manipular archivos y dispositivos en sistemas Unix. En particular, la utilización de /dev/tcp permite la conexión a un host y puerto específicos como si se tratara de un archivo en el sistema.
