@@ -1,7 +1,7 @@
 ---
 title: "Brainfuck"
 date: 2023-12-25
-categories: [Programming_Language]
+categories: [Programming Language]
 tags: [brainfuck]
 image:
     path: /assets/thumbnail/brainfuck.png
