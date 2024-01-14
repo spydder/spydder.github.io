@@ -3,6 +3,8 @@ title: "BashScripting"
 date: 2023-12-25
 categories: [Programming_Language]
 tags: [bash]
+image:
+    path: /assets/BashScripting/bashscripting.jpg
 ---
 
 
@@ -23,6 +25,7 @@ Aquí agregaré comandos útiles para bash scripting.
     git commit -n <”Descripción de herramienta”> # Añadirá una descripción al commit.
     git remote add origin <dirección URL del repositorio en github> # Añadirá el script al repositorio creado en GitHub.
     git push -u origin master # Ingresar usuario y contraseña de GitHub.
+    ```
     
     
 2. **Manejar archivos con nombres especiales**: 
