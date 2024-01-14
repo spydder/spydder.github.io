@@ -1,6 +1,6 @@
 ---
 title: "Brainfuck"
-date: 2024-01-01
+date: 2023-12-25
 categories: [Programming_Language]
 tags: [brainfuck]
 image:
