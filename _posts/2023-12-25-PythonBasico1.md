@@ -2380,7 +2380,7 @@ print(12 in my_list)
     
     Echa un vistazo al tablero de ajedrez. Cada campo contiene un par de índices que se deben dar para acceder al contenido del campo:
     
-    ![Untitled](/assets/PythonBasico/Untitled.png)
+    ![](../assets/PythonBasico/Untitled.png)
     
     Echando un vistazo a la figura que se muestra arriba, coloquemos algunas piezas de ajedrez en el tablero. Primero, agreguemos todas las torres:
     
@@ -2560,7 +2560,7 @@ print(12 in my_list)
     
     2. Puedes usar **listas anidadas** en Python para crear **matrices** (es decir, listas bidimensionales). Por ejemplo:
     
-    ![Untitled](/assets/PythonBasico/Untitled1.png)
+    ![](../assets/PythonBasico/Untitled1.png)
     
     ```python
     # Una tabla de cuatro columnas y cuatro filas: un arreglo bidimensional (4x4)
@@ -2577,7 +2577,7 @@ print(12 in my_list)
     
     3. Puedes anidar tantas listas en las listas como desee y, por lo tanto, crear listas n-dimensionales, por ejemplo, arreglos de tres, cuatro o incluso sesenta y cuatro dimensiones. Por ejemplo:
     
-    ![Untitled](/assets/PythonBasico/Untitled2.png)
+    ![](../assets/PythonBasico/Untitled2.png)
     
     ```python
     # Cubo - un arreglo tridimensional (3x3x3)
@@ -2624,7 +2624,7 @@ print(12 in my_list)
     
     Un buen desarrollador **divide el código** (o mejor dicho: el problema) en piezas aisladas, y **codifica cada una de ellas en la forma de una función**.
     
-    ![Untitled](/assets/PythonBasico/Untitled3.png)
+    ![](../assets/PythonBasico/Untitled3.png)
     
     Esto simplifica considerablemente el trabajo del programa, debido a que cada pieza se codifica por separado, y consecuentemente se prueba por separado. A este proceso se le llama comúnmente **descomposición**.
     
@@ -2634,7 +2634,7 @@ print(12 in my_list)
     
 - **Descomposición**
     
-    ![Untitled](/assets/PythonBasico/Untitled4.png)
+    ![](../assets/PythonBasico/Untitled4.png)
     
     Es muy común que un programa sea tan largo y complejo que no puede ser asignado a un solo desarrollador, y en su lugar un **equipo de desarrolladores** trabajarán en el. El problema, debe ser dividido entre varios desarrolladores de una manera en que se pueda asegurar su eficiencia y cooperación.
     
@@ -2968,7 +2968,7 @@ print(12 in my_list)
     
     El primer parámetro va a contener el nombre del valor deseado.
     
-    ![Untitled](/assets/PythonBasico/Untitled5.png)
+    ![](../assets/PythonBasico/Untitled5.png)
     
     Aquí está:
     
@@ -3411,7 +3411,7 @@ print(12 in my_list)
     
     Analiza la siguiente figura:
     
-    ![Untitled](Untitled6.png)
+    ![](../assets/PythonBasico/Untitled6.png)
     
     La instrucción return, enriquecida con la expresión (la expresión es muy simple aquí), "transporta" el valor de la expresión al lugar donde se ha invocado la función.
     
@@ -3973,7 +3973,7 @@ print(12 in my_list)
     
     La nueva función tendrá **dos parámetros**. Su nombre será bmi, pero si prefieres utilizar otro nombre, adelante.
     
-    ![Untitled](Untitled7.png)
+    ![](../assets/PythonBasico/Untitled7.png)
     
     Codifiquemos la función.
     
@@ -4131,7 +4131,7 @@ print(12 in my_list)
     
 - ****Ejemplos de funciones: Triángulos****
     
-    ![Untitled](/assets/PythonBasico/Untitled8.png)
+    ![](../assets/PythonBasico/Untitled8.png)
     
     Ahora trabajaremos con triángulos. Comenzaremos con una función que verifique si tres lados de ciertas longitudes pueden formar un triángulo.
     
@@ -4248,11 +4248,11 @@ print(12 in my_list)
     
     También es posible evaluar el área de un triángulo. **La Formula de Heron** será útil aquí:
     
-    ![Untitled](/assets/PythonBasico/Untitled9.png)
+    ![](../assets/PythonBasico/Untitled9.png)
     
     Vamos a emplear el operador de exponenciación para calcular la raíz cuadrada - puede ser extraño, pero funciona.
     
-    ![Untitled](/assets/PythonBasico/Untitled10.png)
+    ![](../assets/PythonBasico/Untitled10.png)
     
     Este es el código resultante:
     
