@@ -11,7 +11,7 @@ image:
 
 # Bash Scripting
 
-Aquí agregaré comandos útiles para bash scripting.
+Comandos y conceptos útiles para bash scripting.
 
 
 1. **Subir repositorio o script a GitHub**:
