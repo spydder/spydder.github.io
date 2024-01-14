@@ -1,5 +1,5 @@
 ---
-title: "Nmap: Tipos de escaneo"
+title: "Nmap: Tipos de Escaneo"
 date: 2023-12-25
 categories: [Reconocimiento]
 tags: [reconocimiento, hacking]
