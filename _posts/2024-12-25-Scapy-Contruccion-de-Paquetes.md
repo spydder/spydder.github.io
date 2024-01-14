@@ -15,7 +15,7 @@ image:
 
 Estructura de paquete IPv4
 
-![](../assets/Scapy/Untitled.png){: .left }
+![](../assets/Scapy/Untitled.png)
 
 
 # Funciones
@@ -44,7 +44,7 @@ ls("TFTP")
 ls(IP)
 ```
 
-![](../assets/Scapy/Untitled1.png){: .left }
+![](../assets/Scapy/Untitled1.png)
 
 ### Capturar tráfico de paquetes:
 
@@ -77,9 +77,9 @@ Nota: El proceso se detendrá automáticamente si se le especifica una cantidad 
 ^C<Sniffed: TCP:75 UDP:42 ICMP:32 Other:2>
 ```
 
-![](../assets/Scapy/Untitled2.png){: .left }
+![](../assets/Scapy/Untitled2.png)
 
-![](../assets/Scapy/Untitled3.png){: .left }
+![](../assets/Scapy/Untitled3.png)
 
 Ver el tráfico capturado:
 
@@ -98,7 +98,7 @@ a.nsummary()
 a[2]
 ```
 
-![](../assets/Scapy/Untitled4.png){: .left }
+![](../assets/Scapy/Untitled4.png)
 
 Guardar la captura en un archivo “.pcap” para que pueda ser abierto en Wireshark u otros programas.
 
@@ -116,7 +116,7 @@ wrpcap("<filename.pcap>", <variable>)
 send(IP(dst="8.8.8.8")/ICMP()/"Test")
 ```
 
-![](../assets/Scapy/Untitled5.png){: .left }
+![](../assets/Scapy/Untitled5.png)
 
 ### Enviar un paquete SYN TCP a un destino
 
