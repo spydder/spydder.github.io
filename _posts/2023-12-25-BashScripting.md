@@ -16,16 +16,16 @@ Aquí agregaré comandos útiles para bash scripting.
 
 1. **Subir repositorio o script a GitHub**:
 
-    ```bash
-    # Primero: Crear un repositorio en Github
-
-    # Segundo: Estando en el directorio donde se encuentra el archivo, ingresar
-    git init # Inicializar un repositorio Git en vació.
-    git add <dirección_del_script> # Añadir el script en en el repositorio Git.
-    git commit -n <”Descripción de herramienta”> # Añadirá una descripción al commit.
-    git remote add origin <dirección URL del repositorio en github> # Añadirá el script al repositorio creado en GitHub.
-    git push -u origin master # Ingresar usuario y contraseña de GitHub.
-    ```
+      ```bash
+      # Primero: Crear un repositorio en Github
+  
+      # Segundo: Estando en el directorio donde se encuentra el archivo, ingresar
+      git init # Inicializar un repositorio Git en vació.
+      git add <dirección_del_script> # Añadir el script en en el repositorio Git.
+      git commit -n <”Descripción de herramienta”> # Añadirá una descripción al commit.
+      git remote add origin <dirección URL del repositorio en github> # Añadirá el script al repositorio creado en GitHub.
+      git push -u origin master # Ingresar usuario y contraseña de GitHub.
+      ```
     
     
 2. **Manejar archivos con nombres especiales**: 
