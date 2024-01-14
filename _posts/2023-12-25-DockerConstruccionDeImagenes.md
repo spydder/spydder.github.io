@@ -42,7 +42,7 @@ docker build -t mi-first-image .
 
 Esto mostrará un resultado como el siguiente:
 
-![](Untitled14.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled14.png)
 
 Lo que hace es leer cada línea del Dockerfile; primero instala la imagen de ubuntu y luego establece el nombre del creador.
 
@@ -52,7 +52,7 @@ Luego se verifican las imágenes actuales:
 docker images
 ```
 
-![](Untitled15.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled15.png)
 
 La imagen “my-first-image” es la que se usará para hacer los cambios posteriores. Los cambios, actualizaciones o lo que fuera se deben hacer en el archivo Dockerfile creado previamente y por cada actualización, se debe ejecutar el comando **`docker build -t my-first-image .`**. Una ventaja es que todo lo que se haya ejecutado antes, se mantendrá en caché y solo se ejecutará lo que no se haya hecho.
 
@@ -76,7 +76,7 @@ Verificar contenedores actuales:
 docker ps
 ```
 
-![](Untitled16.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled16.png)
 
 ### Conexión al contenedor
 
@@ -92,21 +92,21 @@ docker exec -it myConatainer bash
 
 Esto creará una consola interactiva como la siguiente:
 
-![](Untitled17.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled17.png)
 
 El hostname corresponde al identificador del contenedor.
 
 También se puede hacer un ping desde la máquina host al contenedor:
 
-![](Untitled18.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled18.png)
 
 A la máquina host se le crea una interfaz de Docker con una IP:
 
-![](Untitled19.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled19.png)
 
 Esto, por otro lado, no se puede hacer desde el contenedor a la máquina host debido a que al crear un contenedor, este se crea “desnudo”, es decir, no tiene casi nada instalado por lo que todo esto se debe ser instalado por el creador
 
-![](Untitled20.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled20.png)
 
 Para salir de la consola del contenedor, se utiliza el comando **`exit`.**
 
@@ -159,7 +159,7 @@ Se comprueba el estado del contenedor:
 docker ps
 ```
 
-![](Untitled21.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled21.png)
 
 Ahora se establece la conexión con la consola del contenedor y se verifica la instalación correcta de todas las herramientas especificadas en el archivo Dockerfile:
 
@@ -167,7 +167,7 @@ Ahora se establece la conexión con la consola del contenedor y se verifica la i
 docker exec -it mySecondContainer bash
 ```
 
-![](Untitled22.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled22.png)
 
 
 ## Comandos para manejar contenedores e imágenes:
@@ -238,13 +238,13 @@ En este lab, se instalará un apache2 en el contenedor de Docker para probar el 
 
 Para esto, al archivo Dockerfile, se le añaden las herramientas necesarias en RUN, en este caso, **apache2** y **php** para interpretar código php:
 
-![](Untitled.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled.png)
 
 #### ENTRYPOINT
 
 Ahora, se le añade una nueva instrucción llamada **ENTRYPOINT** en la que se le especificarán los comandos que se deben ejecutar una vez inicie el contenedor, esto es necesario ya que se quiere iniciar el servicio de apache2 una vez que la máquina inicie:
 
-![](Untitled1.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled1.png)
 
 Es importante agregarle el “/bin/bash” para evitar que el servicio se apague.
 
@@ -252,19 +252,19 @@ Es importante agregarle el “/bin/bash” para evitar que el servicio se apague
 
 Ahora se debe abrir el puerto 80 (HTTP) del contenedor para que posteriormente permita hacer el port-fowarding del puerto 80 de la máquina host al contenedor, para esto se usa la instrucción **EXPOSE** esto servirá para exponer el puerto 80 del contenedor**:**
 
-![](Untitled2.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled2.png)
 
 #### Imágenes `<none>` y ENV
 
 Es posible que durante la instalación de alguna herramienta surja algún modo interactivo para ciertas partes de la instalación que requieren de alguna acción del usuario como lo siguiente (la instalación está pidiendo ingresar una zona geográfica):
 
-![](Untitled3.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled3.png)
 
 Esto no interesa que salga por lo que se usa “ctrl + c” para cancelar el proceso.
 
 Al cancelar de forma forzada la instalación, se crea una imagen `<none>` la cual corresponde a una imagen corrupta o colgada:
 
-![](Untitled4.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled4.png)
 
 Para filtrar este tipo de imágenes, se puede usar el siguiente comando:
 
@@ -282,7 +282,7 @@ También se debería borrar la imagen del ubuntu creado.
 
 Para quitar este tipo de modos interactivos durante la instalación, se ingresa la instrucción **ENV** en el archivo Dockerfile:
 
-![](Untitled5.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled5.png)
 
 #### Port Forwarding (puerto 80)
 
@@ -303,7 +303,7 @@ lsof -i:80
 
 También se utiliza para verificar el proceso de Docker utilizando el puerto una vez encendida la máquina
 
-![](Untitled6.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled6.png)
 
 Otra forma de verificar este port-forwarding, es con el siguiente comando:
 
@@ -311,11 +311,11 @@ Otra forma de verificar este port-forwarding, es con el siguiente comando:
 docker port myWebserver
 ```
 
-![](Untitled7.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled7.png)
 
 También se puede comprobar por medio de la página web apache desde el navegador de la máquina host:
 
-![](Untitled8.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled8.png)
 
 Esta página web no está corriendo en la máquina host, sino en el contenedor Docker, solo que la máquina host está haciendo port-forwarding de su puerto 80 hacia el puerto 80 del contenedor haciéndola visible a través de él.
 
@@ -346,19 +346,19 @@ ENTRYPOINT service apache2 start && /bin/bash
 
 En este escenario consiste en que un atacante logró ingresar un archivo php llamado “shell.php” en el directorio de la página web (/var/www/html) con el siguiente contenido:
 
-![](Untitled9.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled9.png)
 
 `<pre></pre>` : Las etiquetas pre-formateadas sirven para mostrar el stdout como si fuese una consola, sin esto, el resultado se mostraría en una sola lína y sería difícil de leer.
 
 shell_exec($_GET[’cmd’]) : El shell_exec() es una instrucción que sirve para ejecutar comandos a nivel de sistema en el cual se le indica que por el método GET, se podrá controlar el comando que se quiera ejecutar, por lo que si en la URL, se ingresa “localhost/shell.php?cmd=whoami”, este “whoami” se pasará al shell_exec() y lo ejecutará a nivel de sistema.
 
-![](Untitled10.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled10.png)
 
-![](Untitled11.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled11.png)
 
 Si se ejecuta un **ifconfig**, se puede mostrar que la IP de la máquina corresponde a la del contenedor y no al del host:
 
-![](Untitled12.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled12.png)
 
 ### Lab: Uso de Monturas
 Ahora se probarán las monturas las cuales sirven para sincronizar un archivo de la máquina host al contenedor Docker de forma que este será visible dentro del contenedor:
@@ -375,7 +375,7 @@ docker run -dti -p 80:80 -v /home/bryan/midocker/:/var/www/html/
 
 Ahora se comprueba dentro del contenedor, la existencia de los archivos montados:
 
-![](Untitled13.png)
+![](../assets/DockerConstruccionDeImagenes/Untitled13.png)
 
 De esta forma, es posible modificar el archivo en ambos lados y los cambios se verán reflejados en ambos lados también.
 
