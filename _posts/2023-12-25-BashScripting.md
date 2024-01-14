@@ -1,7 +1,7 @@
 ---
 title: "BashScripting"
 date: 2023-12-25
-categories: [Programming_Language]
+categories: [Programming Language]
 tags: [bash]
 image:
     path: /assets/BashScripting/bashscripting.jpg
