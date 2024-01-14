@@ -11,7 +11,7 @@ image:
 
 # Laboratorios:
 
-**LAB: Dando formato de salida**:
+### **LAB: Dando formato de salida**:
 
 - **Explicación del lab**
     
@@ -88,7 +88,7 @@ image:
     ```
     
 
-**LAB: Convertidor simple**: 
+### **LAB: Convertidor simple**: 
 
 - **Explicación del lab**
     
@@ -123,7 +123,7 @@ print(miles, "millas son", round(miles_to_kilometers, 2), "kilómetros")
 print(kilometers, "kilómetros son", round(kilometers_to_miles, 2), "millas")
 ```
 
-**LAB: Operadores y expresiones**:
+### **LAB: Operadores y expresiones**:
 
 - **Explicación del lab**
     
@@ -232,7 +232,7 @@ print("+" + "-" * length + "+")
 
 Se usó la función ceil de la librería math para redondear un número al entero mayor más cercano.
 
-**LAB: Operadores y expresiones 2 (Calculadora de horas)**: 
+### **LAB: Operadores y expresiones 2 (Calculadora de horas)**: 
 
 - **Escenario**
     
@@ -308,7 +308,7 @@ print("El número más grande es:", largest_number)
 
 Este método es significativamente más simple que tratar de encontrar el número más grande comparando todos los pares de números posibles (es decir, el primero con el segundo, el segundo con el tercero y el tercero con el primero). Intenta reconstruir el código por ti mismo.
 
-**LAB: Operadores de comparación y ejecución condicional (Planta Espatifilo)**:
+### **LAB: Operadores de comparación y ejecución condicional (Planta Espatifilo)**:
 
 - **Escenario**
     
@@ -346,7 +346,7 @@ else:
     print("¡Espatifilo!, ¡No {}!".format(plant))
 ```
 
-**LAB: Fundamentos de la sentencia if-else (Impuestos)**:
+### **LAB: Fundamentos de la sentencia if-else (Impuestos)**:
 
 - **Escenario**
     
@@ -393,7 +393,7 @@ tax = round(tax, 0)
 print("El impuesto es:", tax, "pesos")
 ```
 
-**LAB: Fundamentos de la sentencia if-elif-else 2 (Tipo de año)**:
+### **LAB: Fundamentos de la sentencia if-elif-else 2 (Tipo de año)**:
 
 - **Escenario**
     
@@ -557,7 +557,7 @@ print("Fuera del bucle.", counter)
 
 *No te sientas obligado a codificar tus programas de una manera que siempre sea la más corta y la más compacta. La legibilidad puede ser un factor más importante. Manten tu código listo para un nuevo programador.*
 
-**LAB: Adivina el número secreto**:
+### **LAB: Adivina el número secreto**:
 
 - **Escenario**
     
@@ -669,7 +669,7 @@ for i in range(5):
 print("¡Listos o no, ahí voy!")
 ```
 
-**LAB: La sentencia continue – el Feo Devorador de Vocales**:
+### **LAB: La sentencia continue – el Feo Devorador de Vocales**:
 
 - **Escenario**
     
@@ -734,7 +734,7 @@ for letter in user_word:
         print(letter)
 ```
 
-**LAB: La sentencia continue – el Lindo Devorador de Vocales**:
+### **LAB: La sentencia continue – el Lindo Devorador de Vocales**:
 
 - **Escenario**
     
@@ -793,7 +793,7 @@ for letter in user_word:
 print(word_without_vowels)
 ```
 
-**LAB: Fundamentos del bucle while**: 
+### **LAB: Fundamentos del bucle while**: 
 
 - **Escenario**
     
@@ -869,7 +869,7 @@ print("Bloques sobrantes:", surplus_blocks)
     ```
     
 
-**LAB: La hipótesis de Collatz**:
+### **LAB: La hipótesis de Collatz**:
 
 - **Escenario**
     
@@ -1018,7 +1018,7 @@ for digit in "0165031806510":
     print(digit, end="")
 ```
 
-**LAB: Fundamentos de las listas**:
+### **LAB: Fundamentos de las listas**:
 
 - **Escenario**
     
@@ -1063,7 +1063,7 @@ for digit in "0165031806510":
     ```
     
 
-****LAB: Los fundamentos de las listas: los Beatles**:
+### **LAB: Los fundamentos de las listas: los Beatles**:
 
 - **Escenario**
     
@@ -1134,7 +1134,7 @@ print("Los Fav", len(beatles))
 print("FIN")
 ```
 
-**LAB: Operaciones con listas: conceptos básicos**:
+### **LAB: Operaciones con listas: conceptos básicos**:
 
 - **Escenario**
     
@@ -1169,7 +1169,7 @@ print("\n\tLa lista con elementos únicos:", unique)
 print("\tLa lista con elementos repetidos:", repeated)
 ```
 
-**LAB: Un año bisiesto: escribiendo tus propias funciones**:
+### **LAB: Un año bisiesto: escribiendo tus propias funciones**:
 
 - **Escenario**
     
@@ -1215,7 +1215,7 @@ for i in range(len(test_data)):
         print("Fallido")
 ```
 
-**LAB: Cuántos días: escribiendo y usando tus propias funciones**:
+### **LAB: Cuántos días: escribiendo y usando tus propias funciones**:
 
 - **Escenario**
     
@@ -1262,7 +1262,7 @@ for i in range(len(test_years)):
         print("Fallido")
 ```
 
-**LAB: Día del año: escribiendo y usando tus propias funciones**:
+### **LAB: Día del año: escribiendo y usando tus propias funciones**:
 
 - **Escenario**
     
@@ -1309,7 +1309,7 @@ def day_of_year(year, month, day):
 print(day_of_year(2023, 5, 31))
 ```
 
-**LAB: Números primos - cómo encontrarlos**:
+### **LAB: Números primos - cómo encontrarlos**:
 
 - **Escenario**
     
@@ -1353,7 +1353,7 @@ for i in range(1, 20):
 print()
 ```
 
-**LAB: Conversión del consumo de combustible**:
+### **LAB: Conversión del consumo de combustible**:
 
 - **Escenario**
     
