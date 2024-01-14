@@ -1,5 +1,5 @@
 ---
-title: "PythonBasico2"
+title: "Python Básico (2/2)"
 date: 2023-12-25
 categories: [Programming Language]
 tags: [python]
