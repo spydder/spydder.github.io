@@ -1,5 +1,5 @@
 ---
-title: "BashScripting"
+title: "Bash Scripting"
 date: 2023-12-25
 categories: [Programming Language]
 tags: [bash]
