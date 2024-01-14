@@ -1,7 +1,7 @@
 ---
 title: "PythonBasico2"
 date: 2023-12-25
-categories: [Programming_Language]
+categories: [Programming Language]
 tags: [python]
 image:
     path: /assets/PythonBasico/pythonbasico.jpg
