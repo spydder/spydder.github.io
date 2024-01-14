@@ -176,4 +176,133 @@ wait
 tput cnorm
 ```
 
+# Scripts y categorías de nmap para aplicar reconocimiento
+
+Una de las características más poderosas de **Nmap** es su capacidad para automatizar tareas utilizando **scripts personalizados**. Los scripts de Nmap permiten a los profesionales de seguridad automatizar las tareas de reconocimiento y descubrimiento en la red, además de obtener información valiosa sobre los sistemas y servicios que se están ejecutando en ellos. El parámetro **–script** de Nmap permite al usuario seleccionar un conjunto de scripts para ejecutar en un objetivo de escaneo específico.
+
+Existen diferentes categorías de scripts disponibles en Nmap, cada una diseñada para realizar una tarea específica. Algunas de las categorías más comunes incluyen:
+
+-   **default**: Esta es la categoría predeterminada en Nmap, que incluye una gran cantidad de scripts de reconocimiento básicos y útiles para la mayoría de los escaneos.
+-   **discovery**: Esta categoría se enfoca en descubrir información sobre la red, como la detección de hosts y dispositivos activos, y la resolución de nombres de dominio.
+-   **safe**: Esta categoría incluye scripts que son considerados seguros y que no realizan actividades invasivas que puedan desencadenar una alerta de seguridad en la red.
+-   **intrusive**: Esta categoría incluye scripts más invasivos que pueden ser detectados fácilmente por un sistema de detección de intrusos o un Firewall, pero que pueden proporcionar información valiosa sobre vulnerabilidades y debilidades en la red.
+-   **vuln**: Esta categoría se enfoca específicamente en la detección de vulnerabilidades y debilidades en los sistemas y servicios que se están ejecutando en la red.
+
+## Listar scripts de nmap
+Nmap contiene varios scripts los cuales se pueden utilizar para reconocimiento.
+
+```bash
+# Mostrar todos los archivos con extensión ".nse"
+locate .nse
+```
+
+
+## Utilizar scripts para reconocimiento
+
+El parámetro **-sC** sirve para lanzar un conjunto de scripts.
+
+```bash
+# Lanza un conjunto de scripts populares de nmap
+nmap -sCV 192.168.0.1
+
+# Especificar uno o varios scripts en específico
+nmap -sV 192.168.0.1 --script="fuzzer and safe"
+```
+
+### ftp-anon.nse y http-robots.txt
+
+Hay veces en las que un servidor FTP el usuario Anonymous está configurado por defecto, esto permite ingresar al servidor como este usuario sin proporcionar contraseña entonces lo que hace este script es identificar si esto está configurado en el servidor target.
+
+El script http-robots.txt verifica si el archivo /robots.txt ya que este puede contener rutas hacia diferentes archivos entonces lo que hace es reportar estas rutas por consola.
+
+### Categorías de los scripts
+
+Verificar categorías de los scripts
+
+```bash
+# Mostrar los scipts junto con sus categorías
+locate .nse | xargs grep "categories"
+
+# Mostrar las categorías existentes
+locate -nse | xargs grep "categories" | grep -oP '".*?"' | sort -u
+```
+
+### Fuzzing a un servidor web local con http-enum
+
+Para este ejemplo, se crea una carpeta en el directorio actual con el nombre de “admin” y se comparte un servidor web local con python3 en el puerto **80**:
+
+```bash
+mkdir admin
+python3 -m http.server 80
+```
+
+Se puede verificar que no haya otro servicio corriendo en el puerto 80 con **lsof**:
+
+```bash
+lsof -i:80
+```
+
+Y verificar en qué carpeta se está ejecutando el proceso tomando su PID:
+
+```bash
+pwdx 26135
+```
+
+Una vez hecho esto, se procede a abrir el navegador para verificar la página web (localhost) con sus directorios
+
+![](/assets/NmapTiposDeEscaneo/Untitled3.png)
+
+Por último, se ejecuta nmap apuntando al servidor local para fuzzear ls directorios con el script **http-enum**.
+
+```bash
+nmap -p80 192.168.0.100 --scrip http-enum
+```
+
+### Analizando **paquetes con tshark**
+
+tshark es una herramienta como Wireshark pero utilizando la consola para mostrar los paquetes.
+
+Ahora se capturarán todos los paquetes con la herramienta **tcpdump** y **tshark.**
+
+Con el servidor activo, se procede a poner la máquina en escucha por la interfaz de loopback (lo):
+
+```bash
+tcpdump -i lo -w capture.cap -v
+```
+
+Y ahora se vuelve a ejecutar el mismo comando con nmap
+
+```bash
+nmap -p80 192.168.0.100 --script http-enum
+```
+Nmap utiliza un User-Agent como el siguiente: "User-Agent: Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)", esto puede modificarse utilizando la flag "`--script-args http.useragent=""`"
+
+
+Ahora tcpdump debería capturar miles de solicitudes y almacenarlas en el archivo especificado y con tshark se podrán analizar todas estas solicitudes de la siguiente manera:
+
+```bash
+tshark -r capture.cap 2>/dev/null
+```
+
+### Métodos de filtrado en tshark
+
+```bash
+# Mostrar las peticiones HTTP
+tshark -r capture.cap -Y "http" 2>/dev/null
+
+# Mostrar las peticiones GET
+tshark -r capture.cap -Y "http" 2>/dev/null | grep "GET"
+
+# Mostrar los datos en formato json
+# Esto permite ver atributos de los paquetes
+tshark -r capture.cap -Y "http" -Tjson 2>/dev/null
+
+# Filtrar por un campo en específico
+tshark -r capture.cap -Y "http" -Tfields -e tcp.payload 2>/dev/null
+
+# Pasar datos hexadecimales a texto
+tshark -r capture.cap -Y "http" -Tfields -e tcp.payload 2>/dev/null 
+| xxd -ps -r
+```
+
 
