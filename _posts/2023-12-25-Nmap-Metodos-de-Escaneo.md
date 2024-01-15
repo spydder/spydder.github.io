@@ -261,4 +261,89 @@ tshark -r capture.cap -Y "http" -Tfields -e tcp.payload 2>/dev/null
 | xxd -ps -r
 ```
 
+# Descubrimiento de equipos en la red local (ARP e ICMP)
+
+## Ping sweep
+
+```bash
+# Por medio de solicitudes ICMP
+nmap -sn 192.168.0.0/24
+
+# Por medio de solicitudes ARP
+arp-scan -I enp0s3 --localnet
+	# Evitar duplicados
+	arp-scan -I enp0s3 --localnet --ignoredups
+
+# Utilizando masscan.
+# A diferencia de nmap que detecta aprox 1000 hosts por minuto, 
+# esta herramienta detecta millones de hosts por minuto.
+# Entre más alto el rate, menos preciso será.
+masscan -p22,21,139,445,8080,443,80 -Pn 192.168.0.0/16 --rate=5000
+
+# Herramientas alternativas (No Recomendadas)
+netdiscover -i enp0s3
+```
+
+En una auditoría aunque se proporcione una máscara /24, es posible que la red esté segmentada en subredes por lo que hacer un barrido a, por ejemplo, una máscara /16, puede detectar más hosts activos que utilizando una /24.
+
+## Métodos manuales
+
+Se podría utilizar un pequeño script utilizando **ping** para determinar si un host está activo o no de la siguiente manera:
+
+```bash
+timeout 1 bash -c ping -c1 192.168.0.1 &>/dev/null && 
+echo "Está activo" || echo "No está activo"
+```
+
+Basándose en el script anterior, se podría crear un script de la siguiente manera:
+
+Opción #1: Descubrimiento de hosts activos sin verificación de puerto
+
+```bash
+#!/bin/bash
+
+function ctrl_c(){
+	echo -e "\n[!] Exiting..."
+	tput cnorm; exit 1
+}
+
+tput civis
+
+# Ctrl + c
+trap ctrl_c SIGINT
+
+for i in $(seq 1 254); do
+	timeout 1 bash -c "ping -c1 192.168.0.$i" &>/dev/null && echo "[+] Host 192.168.0.$i - ACTIVE" &
+done
+
+wait
+
+tput cnorm
+```
+
+Opción #2: Descubrimiento de hosts activos con verificación de puerto:
+
+```bash
+#!/bin/bash
+
+function ctrl_c(){
+	echo -e "\n[!] Exiting..."
+	tput cnorm; exit 1
+}
+
+tput civis
+
+# Ctrl + c
+trap ctrl_c SIGINT
+
+for i in $(seq 1 254); do
+	for port in 21 22 23 25 80 139 443 445 8080; do
+		timeout 1 bash -c "echo '' > /dev/tcp/192.168.0.$1/$port" 2>/dev/null && echo "[+] Host 192.168.0.$i - Port $port (OPEN)" &
+	done
+done
+
+wait
+
+tput cnorm
+```
 
