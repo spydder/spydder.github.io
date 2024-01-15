@@ -131,50 +131,6 @@ Una vez abierto el archivo en Wireshark, se filtra por el puerto TCP usado y se 
 
 ![](../assets/NmapTiposDeEscaneo/Untitled2.png)
 
-## Enumeración de puertos usando descriptores de archivo
-Una alternativa a la enumeración de puertos utilizando herramientas externas es aprovechar el poder de los descriptores de archivo en sistemas Unix. Los descriptores de archivo son una forma de acceder y manipular archivos y dispositivos en sistemas Unix. En particular, la utilización de /dev/tcp permite la conexión a un host y puerto específicos como si se tratara de un archivo en el sistema.
-
-
-El siguiente es un script básico en bash para descubrir puertos abiertos usando descriptores de archivos:
-
-```bash
-#!/bin/bash
-
-function ctrl_c(){
-	echo -e "\n[!] Exiting..."
-	tput cnorm; exit 1
-}
-
-#Ctrl + C
-trap ctrl_c SIGINT
-
-declare -a ports=( $(seq 1 65535) )
-
-function checkPort(){
-	(exec 3<> /dev/tcp/1$/$2/) 2>/dev/null
-
-	if [ $? -eq 0 ]; then
-		echo "[+] Host $1 - Port $2 (OPEN)"
-	fi
-
-	exec 3<&-
-	exec 3<&-
-}
-
-tput civis # Ocultar cursor
-
-if [ $1 ]; then
-	for port in ${ports[@]}; do
-		checkPort $1 $port &
-	done
-else
-	echo -e "\n[!] Usage: $0 <ip-address>\n"
-fi
-
-wait
-
-tput cnorm
-```
 
 # Scripts y categorías de Nmap
 
