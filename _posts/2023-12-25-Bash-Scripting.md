@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Programming Language]
 tags: [bash]
 image:
-    path: /assets/BashScripting/bashscripting.jpg
+    path: /assets/BashScripting/bash scripting.jpg
 ---
 
 
