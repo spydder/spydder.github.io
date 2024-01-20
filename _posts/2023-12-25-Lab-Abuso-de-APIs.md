@@ -3,6 +3,8 @@ title: "[Lab] Abuso de APIs"
 date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, api]
+img:
+  path: /assets/OWASP-TOP-10/Abuso de APIs/abusodeapis.png
 ---
 
 # Abuso de APIs
@@ -61,11 +63,11 @@ Si se generan errores en la instalación. se debe eliminar todo el proyecto e in
 
 Al intentar iniciar sesión, se puede ver en los headers una petición por POST a y un endpoint de la API
 
-![Untitled](../assets/OWASP-TOP-10/Untitled.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled.png)
 
 En la que a nivel de datos, se está enviando una estructura json con el email y la contraseña del usuario.
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 1.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 1.png)
 
 El servidor responde con un JWT (JSON Web Token) de sesión, esto se puede deducir por la estructura del token en el que parece tener tres partes separadas por punto:
 
@@ -91,23 +93,23 @@ El servidor responde con un JWT (JSON Web Token) de sesión, esto se puede deduc
     En resumen, un JSON Web Token es una forma segura y eficiente de transmitir información entre dos partes, generalmente utilizada para autenticación y autorización en aplicaciones web y servicios API.
     
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 2.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 2.png)
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 3.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 3.png)
 
 ### Endpoint - Dashboard
 
 En el dashboard se está enviando una petición por GET a una ruta del endpoint.
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 4.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 4.png)
 
 En la respuesta del servidor, se proporciona información del usuario autenticado esto debido a que el usuario tiene un JWT que lo identifica:
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 5.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 5.png)
 
 Y a nivel de headers, se puede ver el campo “Authorization” el cual contiene el JWT del usuario con el tipo “Bearer”:
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 6.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 6.png)
 
 ## Postman - Instalación
 
@@ -138,25 +140,25 @@ Lo que se hará es representar todas las rutas o endpoints de API, para esto, se
 
 Por ejemplo, se añadirá la petición que se hace al iniciar sesión:
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 7.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 7.png)
 
 Luego, en la interfaz de postman, se debe crear una nueva colección y añadir un “HTTP Request”
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 8.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 8.png)
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 9.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 9.png)
 
 Aquí se debe pegar la dirección del endpoint, luego en el “Body” añadir los datos en raw que se están enviando al servidor, en este caso en formato json el email y la contraseña y poner el método POST, y por último, cambiar el tipo a JSON.
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 10.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 10.png)
 
 Al enviar la petición, se puede ver el JWT proporcionado por el servidor.
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 11.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 11.png)
 
 Ahora, se guarda la petición y se le asigna un nombre descriptivo.
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 12.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 12.png)
 
 ## Postman - Creación de variables
 
@@ -164,11 +166,11 @@ Crear una variable puede es útil ya que se podrían estar manejando peticiones 
 
 Para crear una variable, se debe dar click en la colección, luego ir a variables y crear una variable con un nombre descriptivo, la cual se le dará como valor el JWT proporcionado por el servidor y hecho esto, se da click en guardar.
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 13.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 13.png)
 
 Luego en la pestaña Authorization, se debe cambiar el tipo, en este caso es Bearer y en “Token”, se debe ingresar el token pero sse puede hacer alusión a él con doble llave: {{accessToken}}
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 14.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 14.png)
 
 Esto servirá para que a futuras peticiones que se hagan, se arrastre este JWT.
 
@@ -185,13 +187,13 @@ ffuf -u http://localhost:8888/workshop/api/sjop/products
 # cada respuesta
 ```
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 15.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 15.png)
 
 También se podría mandar una petición con el método OPTIONS el cual sirve para que muestre qué métodos son permitidos para una petición:
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 16.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 16.png)
 
-![Untitled](../assets/OWASP-TOP-10/Untitled 17.png)
+![Untitled](../assets/OWASP-TOP-10/Abuso de APIs/Untitled 17.png)
 
 ## Vectores de ataque
 
