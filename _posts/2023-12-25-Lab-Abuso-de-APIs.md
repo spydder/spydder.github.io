@@ -1,5 +1,5 @@
 ---
-title: "Abuso de APIs"
+title: "[Lab] Abuso de APIs"
 date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, api]
