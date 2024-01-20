@@ -3,6 +3,8 @@ title: "[Lab] Abuso de APIs"
 date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, api]
+img:
+  path: /assets/OWASP-TOP-10/Abuso de APIs/abusodeapis.png
 ---
 
 # Abuso de APIs
