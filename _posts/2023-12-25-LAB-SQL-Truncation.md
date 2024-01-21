@@ -45,7 +45,7 @@ Después de eso, arrancar la máquina y durante el proceso de iniciado, presiona
 
 Cambiar el campo “ro quiet” a “rw init=/bin/bash” y luego hacer un “Ctrl + x”.
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%201.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 1.png)
 
 Luego en la shell proporcionada como root, configurar los siguientes archivos:
 
@@ -65,7 +65,7 @@ Después de terminar, se reinicia la máquina y la configuración debería estar
 
 La máquina tiene el servicio web corriendo por el puerto 80 y la web se ve así:
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%202.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 2.png)
 
 Por lo que aplicará un fuzzing rápido para descubrir directorios:
 
@@ -75,7 +75,7 @@ gobuster dir -t 10 -u http://192.168.0.101/
 Web-Content/directory-list-2.3-medium.txt
 ```
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%203.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 3.png)
 
 El directorio que interesa es el “bluesky” y se aplicará otro fuzzing a este directorio:
 
@@ -85,17 +85,17 @@ gobuster dir -t 5 -u http://192.168.0.101
 directory-list-2.3-medium.txt
 ```
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%204.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 4.png)
 
 Por un lado está el “login,php” y por el otro el “signup.php”:
 
-![Untitled](vUntitled%205.png)
+![Untitled](vUntitled 5.png)
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%206.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 6.png)
 
 Para conocer más a fondo la página, se creará un nuevo usuario.
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%207.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 7.png)
 
 Al ver el código fuente de esta página con curl, se muestra el directorio “/home/tornado/imp.txt”:
 
@@ -103,11 +103,11 @@ Al ver el código fuente de esta página con curl, se muestra el directorio “/
 curl -s -X GET "http://192.168.0.101/bluesky/port.php"
 ```
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%208.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 8.png)
 
 De primeras no se podrá acceder a este recurso con un LFI.
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%209.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 9.png)
 
 Aunque debido a que es el directorio del usuario, puede ser que haya un alias que apunte al directorio del usuario, es decir, utilizando la virgulilla “~”:
 
@@ -115,16 +115,16 @@ Aunque debido a que es el directorio del usuario, puede ser que haya un alias qu
     
     Muestra del archivo de configuración de apache2: “/etc/apache2/apache2.conf”
     
-    ![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2010.png)
+    ![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 10.png)
     
     Cuando se haga alusión a “/~tornado/” este apuntará al directorio del usuario “/home/tornado”.
     
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2011.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 11.png)
 
 En el directorio de encuentra el archivo “imp.txt” el cual contiene diferentes correos electrónicos:
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2012.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 12.png)
 
 Estos correos podrían ser usuarios válidos para el sitio web pero aún así no se tiene la contraseña.
 
@@ -132,7 +132,7 @@ Estos correos podrían ser usuarios válidos para el sitio web pero aún así no
 
 Analizando un poco el “register.php”, al intentar crear una nueva cuenta, se ve que hay un límite de caracteres permitidos, es decir, se establece un “maxlength” igual a 13, esto no permite ingresar un correo con más de 13 caracteres.
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2013.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 13.png)
 
 Al ver esto, se puede pensar en efectuar un SQL Truncation.
 
@@ -140,7 +140,7 @@ Este ataque consiste en ingresar más caracteres de los que se debe en el campo 
 
 Al intentar registrar este mismo usuario, con una contraseña diferente, se verá el siguiente mensaje:
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2014.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 14.png)
 
 Indica que el usuario ya está registrado pero se podría aplicar un SQL Truncation para registrar este mismo usuario con una contraseña diferente, para esto, se hace lo siguiente:
 
@@ -170,17 +170,17 @@ lo sobreescribirá con la nueva contraseña
 
 Se modifica el límite de caracteres permitidos
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2015.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 15.png)
 
 Se aplica el SQL Truncation y el usuario se crea correctamente sobrescribiendo la contraseña.
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2016.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 16.png)
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2017.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 17.png)
 
 Ahora es posible ingresar con el usuario admin@tornado con la nueva contraseña.
 
-![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled%2018.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 18.png)
 
 ### Más ejemplos con otros usuarios
 
