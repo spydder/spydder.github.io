@@ -89,7 +89,7 @@ directory-list-2.3-medium.txt
 
 Por un lado está el “login,php” y por el otro el “signup.php”:
 
-![Untitled](vUntitled 5.png)
+![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 5.png)
 
 ![Untitled](../assets/OWASP-TOP-10/SQL Truncation/Untitled 6.png)
 
