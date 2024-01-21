@@ -218,7 +218,7 @@ Primero, se creará una cuenta similar a “admin”, por ejemplo, “cdmin” p
 
 Ahora se interceptará la petición con Burpsuite recargando la página y se mandará la repeater:
 
-![Untitled](../assets/OWASP-TOP-10/Padding Oracle//Untitled 13.png)
+![Untitled](../assets/OWASP-TOP-10/Padding Oracle/Untitled 13.png)
 
 Luego en la sección de Payloads, seleccionar lo siguiente:
 
