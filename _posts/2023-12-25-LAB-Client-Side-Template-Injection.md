@@ -69,7 +69,7 @@ En este caso, el payload que se utilizará es el siguiente:
 {% endraw %}
 ```
 
-Este payload, está haciendo un “alert(1) de forma que cuando esto se ingrese en la web, mostrará una alerta con valor 1”:
+Este payload, está haciendo un “alert(1)" de forma que cuando esto se ingrese en la web, mostrará una alerta con valor 1:
 
 ![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled 4.png)
 
