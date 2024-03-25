@@ -30,23 +30,23 @@ python2 CSTI.py
 
 Esto lo que hará es correr un servidor web de forma local sin contenedores:
 
-![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled.png)
+![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled.png)
 
 La web se ve de esta forma:
 
-![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled 1.png)
+![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled 1.png)
 
 Este lab sirve para entender el concepto de cómo funciona un CSTI más que para un escenario real.
 
 Al ingresar un input, por ejemplo, la palabra “Hola”, esta se vería reflejada en el servidor:
 
-![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled 2.png)
+![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled 2.png)
 
 A comparación con el SSTI, la idea es la misma, inyectar un input para verlo reflejado en el servidor pero la diferencia radica en que la inyección en este caso se ve reflejada o la ejecuta el navegador del cliente y no el servidor en sí por lo que aquí la ejecución de comandos para ver archivos internos del servidor no aplican pero la idea de este ataque es derivarlo a un XSS para obtener algún tipo de información valiosa del usuario como cookies de sesión entre otras cosas.
 
 En este caso se puede utilizar el repositorio de PayloadAllTheThings, en este caso se puede ver en la web que se está utilizando una versión en particular de Angularjs, la 1.5.0 por lo que se buscarán payloads para esa versión:
 
-![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled 3.png)
+![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled 3.png)
 
 En este caso, el payload que se utilizará es el siguiente:
 
@@ -71,7 +71,7 @@ En este caso, el payload que se utilizará es el siguiente:
 
 Este payload, está haciendo un “alert(1) de forma que cuando esto se ingrese en la web, mostrará una alerta con valor 1”:
 
-![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled 4.png)
+![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled 4.png)
 
 También se puede representar strings por ejemplo la palabra “PWNED”, en este caso se pasará el string a decimal para que no haya problemas de interpretación y para esto se utilizará python:
 
@@ -83,11 +83,11 @@ for character in sentence:
 
 *ord() permite pasar los caracteres a decimal.*
 
-![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled 5.png)
+![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled 5.png)
 
 Luego estos caracteres de pueden tratar para representarlos en una misma línea:
 
-![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled 6.png)
+![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled 6.png)
 
 Ahora esto se puede incluir en el payload
 
@@ -110,4 +110,4 @@ Ahora esto se puede incluir en el payload
 {% endraw %}
 ```
 
-![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled 7.png)
+![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection (CSTI)/Untitled 7.png)
