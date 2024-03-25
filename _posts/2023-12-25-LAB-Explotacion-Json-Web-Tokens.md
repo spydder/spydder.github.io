@@ -5,7 +5,7 @@ categories: [OWASPTop10]
 tags: [owasptop10, hacking, jwt]
 ---
 
-# Enumeración y explotación de Json Web Tokens (JWT)
+# Explotación de Json Web Tokens (JWT)
 
 ### Más info:
 
