@@ -34,35 +34,35 @@ tags: [owasptop10, hacking, wrappers, php]
 
 Permite mostrar archivos locales del servidor
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled.png)
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%201.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 1.png)
 
 ### Ejemplo #1 - Directory Path Traversal: Contra raíz definida
 
 Aunque se establezca una raíz por defecto, es posible moverse por directorios con barras ”../” para salir de esa raíz.
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%202.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 2.png)
 
 ### Ejemplo #2 - Directory Path Traversal: Contra sustitución de barras
 
 Aunque se aplique una sustitución de barras “../”, esto no se hace de forma recursiva permitiendo evitar esto incluyendo más puntos y barras “….//”.
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%203.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 3.png)
 
 ### Ejemplo #3 - Contra Regex
 
 Aunque se filtre el input del usuario para detectar palabras como “/etc/passwd”, etc, no evita la inclusión de otras formas cambiando la cadena de caracteres para mostrar el mismo archivo o intentar mostrar otros archivos no contemplados en la regex.
 
-![Se muestra un mensaje de acceso denegado al intentar listar /etc/passwd](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%204.png)
+![Se muestra un mensaje de acceso denegado al intentar listar /etc/passwd](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 4.png)
 
 Se muestra un mensaje de acceso denegado al intentar listar /etc/passwd
 
-![Se cambia la cadena de caracteres aplicando múltiples barras “///”](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%205.png)
+![Se cambia la cadena de caracteres aplicando múltiples barras “///”](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 5.png)
 
 Se cambia la cadena de caracteres aplicando múltiples barras “///”
 
-![Se listan otros archivos no contemplados en la regex](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%206.png)
+![Se listan otros archivos no contemplados en la regex](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 6.png)
 
 Se listan otros archivos no contemplados en la regex
 
@@ -76,7 +76,7 @@ cat /et?/p?ss?? # Insertando "?". El sistem buscará automáticamente
 # coincidencias
 ```
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%207.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 7.png)
 
 ### Ejemplo #4 - Contra concatenación de extensiones
 
@@ -103,21 +103,21 @@ docker run -dit --name testing <IDimagen>
 
 Debido a que esta corresponde a una versión antigua, se puede evadir esta concatenación con un “Null Byte”:
 
-![Concatenación de /etc/hosts con la extensión “.php”](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%208.png)
+![Concatenación de /etc/hosts con la extensión “.php”](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 8.png)
 
 Concatenación de /etc/hosts con la extensión “.php”
 
-![Evadiendo la concatenación con un “Null Byte”](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%209.png)
+![Evadiendo la concatenación con un “Null Byte”](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 9.png)
 
 Evadiendo la concatenación con un “Null Byte”
 
 ### Ejemplo #5 - Contra verificación de últimos caracteres
 
-![Verificación de últimos caracteres no muestra el archivo](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2010.png)
+![Verificación de últimos caracteres no muestra el archivo](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 10.png)
 
 Verificación de últimos caracteres no muestra el archivo
 
-![Evadiendo la verificación con “/.” al final de la cadena](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2011.png)
+![Evadiendo la verificación con “/.” al final de la cadena](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 11.png)
 
 Evadiendo la verificación con “/.” al final de la cadena
 
@@ -172,19 +172,19 @@ Se tiene el archivo “secret.php” y un index.php con el siguiente contenido:
 
 Al buscar este archivo en la web no muestra nada:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2012.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 12.png)
 
 Pero al utilizar un wrapper para codificar el contenido en base64, se puede obtener su contenido:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2013.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 13.png)
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2014.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 14.png)
 
 ### Wrapper - Rotar los caracteres 13 posiciones (ROT13)
 
 **`php://filter/read=string.rot13/resource=secret.php`**
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2015.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 15.png)
 
 Esto para decodificarlo se hace de la siguiente manera:
 
@@ -198,7 +198,7 @@ Esto para decodificarlo se hace de la siguiente manera:
 cat file | tr '[c-za-bC-ZA-B]' '[p-za-oP-ZA-O]'
 ```
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2016.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 16.png)
 
 ### Wrapper - Cambiar formato UTF-8 a UTF-16
 
@@ -229,7 +229,7 @@ cat file | tr '[c-za-bC-ZA-B]' '[p-za-oP-ZA-O]'
     En algunos casos, es posible que ciertos caracteres o secuencias de caracteres en UTF-8 no se muestren correctamente debido a problemas de codificación o interpretación en la página web. Al realizar la conversión a UTF-16, esas secuencias de caracteres pueden mostrarse correctamente porque la página web puede estar mejor preparada para manejar la codificación UTF-16.
     
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2017.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 17.png)
 
 ### Wrapper - Ejecución de comandos
 
@@ -251,45 +251,45 @@ Ejemplo #2:
 
 Con una petición por POST, se le ingresa el wrapper y en el contenido se el ingresa el comando:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2018.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 18.png)
 
 Si no funciona, se debe editar el archivo “nano /etc/php/8.1/apache2/php.ini” y poner en “On” el “allow_url_include”
 
 Ejemplo #3
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2019.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 19.png)
 
 ### Wrapper - PHP Filter Chain Manual
 
 En php, hay una característica curiosa la cual es que al codificar una cadena en base64 con “base64_encode()”, si al codificado, se le añaden cadenas incorrectas, el descodificado seguirá dando el mismo resultado:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2020.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 20.png)
 
 Sin embargo, esto no sucede igual cuando se utiliza el wrapper para codificar en base64 ya que da error cuando se le añade “=” al codificado:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2021.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 21.png)
 
 Esto se puede solucionar convirtiendo la cadena de UTF-8 a UTF-7 antes de decodificarla:
 
-![Esta vez se pasó la cadena “prueba” a base64 y se le añadió “==” al final](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2022.png)
+![Esta vez se pasó la cadena “prueba” a base64 y se le añadió “==” al final](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 22.png)
 
 Esta vez se pasó la cadena “prueba” a base64 y se le añadió “==” al final
 
 Si se pasa a hexadecimal con xxd, se vería de la siguiente manera:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2023.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 23.png)
 
 Ahora lo que se hace es transformar la cadena de UTF-8 a CSISO2022KR, esto curiosamente añade unos caracteres al principio de la cadena original:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2024.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 24.png)
 
 Ahora si a esto se lo pasa otra vez de UTF-8 a UTF-7 (para evitar el problema de los “=”) y luego se decodifica y se codifica otra vez, se le añaden muchos más caracteres a la cadena original:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2025.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 25.png)
 
 Ahora aquí es donde la magia ocurre, se hará lo mismo solo que con la cadena sin los iguales (==) que generan conflicto, es decir, se pasa de UTF-8 a CSISO2022KR y luego se decodifica y se codifica otra vez la cadena (sin necesidad de pasar de UTF-8 a UTF-7):
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2026.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 26.png)
 
 Como se puede ver, a la cadena original se le agregó una “C”, esto significa que se pueden insertar varias cadenas de caracteres para inyectar por ejemplo una línea de php como “<?php system($_GET[’cmd’])?>” caractér por caracter
 
@@ -307,17 +307,17 @@ php -r “”; echo “file_get_contents(’php://filter/convert.iconv.UTF-8.CSI
 
 3. Ahora, tomando como referencia el repositorio, se buscará la letra “a” y se copiará su conversión:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2027.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 27.png)
 
 El comando quedaría así, primero se le inserta la conversión, luego de decodifica y codifica la cadena y al final se le agrega la conversión para errores: php -r “”; echo “file_get_contents(’php://filter/convert.iconv.UTF-8.CSISO2022KR|conver.iconv.UTF-8.UTF-7|convert.iconv.CP1046.UTF32|convert.iconv.L6.UCS-2|convert.iconv.UTF-16LE.T.61-8BIT|convert.iconv.865.UCS-4LE|conver.base64-decode|convert.base64-encode|conver.iconv.UTF-8.UTF-7/resource=text.txt’);”; echo
 
 Esto mostrará la letra “a” al inicio.
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2028.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 28.png)
 
 Luego, la secuencia es la misma para las otras letras → yunk|conversión para errores|conversión para letra|decodificar y codificar|conversión para errores
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2029.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 29.png)
 
 ```bash
 php -r "echo file_get_contents('php://filter/convert.iconv.UTF-8.CSISO2022KR|
@@ -335,7 +335,7 @@ convert.iconv.UTF-8.UTF-7/resource=text.txt');"; echo
 
 Esto también se puede ingresar en la web:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2030.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 30.png)
 
 ```bash
 php://filter/convert.iconv.UTF-8.CSISO2022KR|
@@ -369,11 +369,11 @@ python3 php_filter_chain_generator.py --chain "cadena"
 
 Ejemplo:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2031.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 31.png)
 
 Al pegarlo en la URL, se obtiene el comando php ejecutado:
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2032.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 32.png)
 
 ## Sanitizaciones
 
@@ -466,4 +466,4 @@ php -r 'if(substr($argv[1],-6,6)!="passwd") include($argv[1]);' '/etc/passwd'; e
     En resumen, la cadena de código PHP ejecuta un script que verifica si el último segmento de 6 caracteres del primer argumento pasado desde la línea de comandos es igual a "passwd". Si no lo es, se incluye el archivo especificado en el primer argumento (**`$argv[1]`**). Finalmente, se imprime el resultado.
     
 
-![Untitled](Local%20File%20Inclusion%20(LFI)%20fe422edc5a864fb581eab947f892807a/Untitled%2033.png)
+![Untitled](../assets/OWASP-TOP-10/Local File Inclusion (LFI)/Untitled 33.png)
