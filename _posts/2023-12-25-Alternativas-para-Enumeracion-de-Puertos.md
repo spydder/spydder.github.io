@@ -1,8 +1,8 @@
 ---
 title: "Alternativas para la Enumeración de Puertos"
 date: 2023-12-25
-categories: [Reconocimiento]
-tags: [reconocimiento, hacking]
+categories: [Reconnaissance]
+tags: [reconnaissance, hacking]
 ---
 
 
