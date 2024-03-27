@@ -1,8 +1,8 @@
 ---
 title: "Nmap: Evasión de Firewall"
 date: 2023-12-25
-categories: [Reconocimiento]
-tags: [reconocimiento, hacking]
+categories: [Reconnaissance]
+tags: [reconnaissance, hacking]
 image:
     path: /assets/NmapEvasionDeFirewall/nmap.png
 ---
