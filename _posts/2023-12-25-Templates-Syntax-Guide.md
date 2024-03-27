@@ -6,8 +6,8 @@ tags: [teamplates, guide]
 ---
 
 1. Jinja, Django, Flask, Twig:
-    - Delimitador de apertura: **{%**
-    - Delimitador de cierre: **%}**
+    - Delimitador de apertura: **{% raw %} {% {% endraw %}**
+    - Delimitador de cierre: **{% raw %} %} {% endraw %}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -21,8 +21,8 @@ tags: [teamplates, guide]
         ```
         
 2. Groovy:
-    - Delimitador de apertura: **<%**
-    - Delimitador de cierre: **%>**
+    - Delimitador de apertura: **{% raw %} <% {% endraw %}**
+    - Delimitador de cierre: **{% raw %} %> {% endraw %}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -36,8 +36,8 @@ tags: [teamplates, guide]
         ```
         
 3. Smarty:
-    - Delimitador de apertura: **{%**
-    - Delimitador de cierre: **%}**
+    - Delimitador de apertura: **{% raw %} {% {% endraw %}**
+    - Delimitador de cierre: **{% raw %} %} {% endraw %}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -66,8 +66,8 @@ tags: [teamplates, guide]
         ```
         
 5. Handlebars:
-    - Delimitador de apertura: **{{**
-    - Delimitador de cierre: **}}**
+    - Delimitador de apertura: **{% raw %} {{ {% endraw %}**
+    - Delimitador de cierre: **{% raw %} }} {% endraw %}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -81,8 +81,8 @@ tags: [teamplates, guide]
         ```
         
 6. Mustache:
-    - Delimitador de apertura: **{{**
-    - Delimitador de cierre: **}}**
+    - Delimitador de apertura: **{% raw %} {{ {% endraw %}**
+    - Delimitador de cierre: **{% raw %} }} {% endraw %}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -96,8 +96,8 @@ tags: [teamplates, guide]
         ```
         
 7. EJS (Embedded JavaScript):
-    - Delimitador de apertura: **<%**
-    - Delimitador de cierre: **%>**
+    - Delimitador de apertura: **{% raw %} <% {% endraw %}**
+    - Delimitador de cierre: **{% raw %} %> {% endraw %}**
     - Ejemplo de estructura básica:
         
         ```bash
