@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Templates]
 tags: [teamplates, guide]
 ---
-
+{% raw %}
 1. Jinja, Django, Flask, Twig:
     - Delimitador de apertura: **`{%`**
     - Delimitador de cierre: **`%}`**
@@ -124,3 +124,4 @@ tags: [teamplates, guide]
         #end
         {% endraw %}
         ```
+{% endraw %}
