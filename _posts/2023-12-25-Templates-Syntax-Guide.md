@@ -4,10 +4,10 @@ date: 2023-12-25
 categories: [Templates]
 tags: [teamplates, guide]
 ---
-{% raw %}
+
 1. Jinja, Django, Flask, Twig:
-    - Delimitador de apertura: **`{%`**
-    - Delimitador de cierre: **`%}`**
+    - Delimitador de apertura: **{%**
+    - Delimitador de cierre: **%}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -21,8 +21,8 @@ tags: [teamplates, guide]
         ```
         
 2. Groovy:
-    - Delimitador de apertura: **`<%`**
-    - Delimitador de cierre: **`%>`**
+    - Delimitador de apertura: **<%**
+    - Delimitador de cierre: **%>**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -36,8 +36,8 @@ tags: [teamplates, guide]
         ```
         
 3. Smarty:
-    - Delimitador de apertura: **`{%`**
-    - Delimitador de cierre: **`%}`**
+    - Delimitador de apertura: **{%**
+    - Delimitador de cierre: **%}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -51,8 +51,8 @@ tags: [teamplates, guide]
         ```
         
 4. Blade (Laravel):
-    - Delimitador de apertura: **`@`**
-    - Delimitador de cierre: **`@`**
+    - Delimitador de apertura: **@**
+    - Delimitador de cierre: **@**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -66,8 +66,8 @@ tags: [teamplates, guide]
         ```
         
 5. Handlebars:
-    - Delimitador de apertura: **`{{`**
-    - Delimitador de cierre: **`}}`**
+    - Delimitador de apertura: **{{**
+    - Delimitador de cierre: **}}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -81,8 +81,8 @@ tags: [teamplates, guide]
         ```
         
 6. Mustache:
-    - Delimitador de apertura: **`{{`**
-    - Delimitador de cierre: **`}}`**
+    - Delimitador de apertura: **{{**
+    - Delimitador de cierre: **}}**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -96,8 +96,8 @@ tags: [teamplates, guide]
         ```
         
 7. EJS (Embedded JavaScript):
-    - Delimitador de apertura: **`<%`**
-    - Delimitador de cierre: **`%>`**
+    - Delimitador de apertura: **<%**
+    - Delimitador de cierre: **%>**
     - Ejemplo de estructura básica:
         
         ```bash
@@ -111,7 +111,7 @@ tags: [teamplates, guide]
         ```
         
 8. Velocity:
-    - Delimitador de apertura: **`#`**
+    - Delimitador de apertura: **#**
     - Delimitador de cierre: ninguno (basado en indentación)
     - Ejemplo de estructura básica:
         
@@ -124,4 +124,3 @@ tags: [teamplates, guide]
         #end
         {% endraw %}
         ```
-{% endraw %}
