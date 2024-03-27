@@ -1,8 +1,8 @@
 ---
 title: "Nmap: Métodos de Escaneo"
 date: 2023-12-25
-categories: [Reconocimiento]
-tags: [reconocimiento, hacking]
+categories: [Reconnaissance]
+tags: [reconnaissance, hacking]
 image:
     path: /assets/NmapTiposDeEscaneo/nmap.png
 ---
