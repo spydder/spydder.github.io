@@ -1499,8 +1499,6 @@ Por el puerto 9999 está corriendo otro servicio en el cual se pide una contrase
 
 ## Buffer Overflow con Immunity Debugger
 
-Instalación del immunity Debugger: [Link](../Buffer%20overflow%208d9d5c355a9248a68afb32af7d8aefdc/Creacio%CC%81n%20de%20nuestro%20laboratorio%20de%20pruebas%20e%20inst%20634d6b1ca327463ab3d7df619703e659.md)
-
 Este ejecutable será analizado utilizando un Windows 7 por lo que se utilizará SMB para transferirlo de la máquina atacante al Windows 7.
 
 ```bash
