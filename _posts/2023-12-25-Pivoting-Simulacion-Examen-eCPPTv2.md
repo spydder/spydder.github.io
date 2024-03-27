@@ -3,7 +3,7 @@
 title: "Pivoting: Simulación del examen eCPPTv2"
 date: 2023-12-25
 categories: [OWASPTop10]
-tags: [hacking, pivoting, buffer overflow, cve, wordpress, joomla, cms, port forwarding, ssrf, eternal blue, brute force, restricted bash, reverse shell, python, bash, rce, mysql, windows, linux, firefox]
+tags: [hacking, pivoting, buffer overflow]
 ---
 
 # Pivoting: Simulación del examen eCPPTv2
