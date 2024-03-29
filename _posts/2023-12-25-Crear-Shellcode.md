@@ -3,6 +3,8 @@ title: "Creación manual de Shellcodes"
 date: 2023-12-25
 categories: [Assembly]
 tags: [shellcode, assembly, reverse shell]
+image:
+    path: /assets/thumbnail/assembly.png
 ---
 
 # Introducción
