@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Docker]
 tags: [docker]
 image:
-    path: /assets/DockerConstruccionDeImagenes/docker.jpg
+    path: /assets/thumbnail/docker.jpg
 ---
 
 

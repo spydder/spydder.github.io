@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, api]
 img:
-  path: /assets/OWASP-TOP-10/Abuso de APIs/abusodeapis.jpg
+  path: /assets/thumbnail/abusodeapis.jpg
 ---
 
 # Abuso de APIs

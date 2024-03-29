@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, subida de archivo]
 img:
-  path: /assets/OWASP-TOP-10/Abuso de subidas de archivos/subidadearchivos.png
+  path: /assets/thumbnail/subidadearchivos.png
 ---
 
 

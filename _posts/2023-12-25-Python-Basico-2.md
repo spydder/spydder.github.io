@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Programming Language]
 tags: [python]
 image:
-    path: /assets/PythonBasico/pythonbasico.jpg
+    path: /assets/thumbnail/python.jpg
 ---
 
 # Python Básico(2/2): Laboratorios prácticos

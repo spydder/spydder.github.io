@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Programming Language]
 tags: [python, scapy, networking]
 image:
-    path: /assets/Scapy/scapy.jpg
+    path: /assets/thumbnail/scapy.jpg
 ---
 
 

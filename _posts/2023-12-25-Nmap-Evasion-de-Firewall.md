@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Reconnaissance]
 tags: [reconnaissance, hacking]
 image:
-    path: /assets/NmapEvasionDeFirewall/nmap.png
+    path: /assets/thumbnail/nmap.png
 ---
 
 

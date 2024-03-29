@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, padding oracle]
 img:
-  path: /assets/OWASP-TOP-10/Padding Oracle/paddingoracle.png
+  path: /assets/thumbnail/paddingoracle.png
 ---
 
 

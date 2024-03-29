@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Professional Report]
 tags: [report, latex, tex]
 image:
-    path: ../assets/thumbnail/latex.png
+    path: /assets/thumbnail/latex.png
 ---
 
 

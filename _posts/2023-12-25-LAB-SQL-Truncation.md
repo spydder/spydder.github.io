@@ -3,8 +3,6 @@ title: "[Lab] SQL Truncation"
 date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, sql truncation]
-img:
-  path: /assets/OWASP-TOP-10/SQL Truncation/sqltruncation.png
 ---
 
 
