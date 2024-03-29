@@ -4,7 +4,7 @@ date: 2023-12-25
 categories: [Buffer Overflow]
 tags: [buffer overflow, immunity debugger, windows 32-bits, python, shellcode, assembly]
 image:
-    path: ../assets/Buffer-Overflow/bufferoverflow.png
+    path: ../assets/thumbnails/bufferoverflow.png
 ---
 
 # Introducción
