@@ -3,8 +3,6 @@ title: "[Lab] Abuso de subidas de archivos"
 date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, subida de archivo]
-img:
-  path: /assets/thumbnail/subidadearchivos.png
 ---
 
 

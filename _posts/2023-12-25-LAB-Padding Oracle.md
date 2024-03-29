@@ -3,8 +3,6 @@ title: "[Lab] Padding Oracle"
 date: 2023-12-25
 categories: [OWASPTop10]
 tags: [owasptop10, hacking, padding oracle]
-img:
-  path: /assets/thumbnail/paddingoracle.png
 ---
 
 
